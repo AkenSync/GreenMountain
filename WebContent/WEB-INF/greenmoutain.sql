@@ -436,6 +436,7 @@ IDPARTENAIRE ASC
 /*==============================================================*/
 create table COMMANDEARTICLE 
 (
+	IDCOMMANDEARTICLE	serial,
     IDCOMMANDE           integer                        not null,
     IDPRODUIT            integer                        not null,
     QUANTITE             integer,
@@ -447,6 +448,7 @@ create table COMMANDEARTICLE
 /* Index: COMMANDEARTICLE_PK                                    */
 /*==============================================================*/
 create unique index COMMANDEARTICLE_PK on COMMANDEARTICLE (
+IDCOMMANDEARTICLE ASC,
 IDCOMMANDE ASC,
 IDPRODUIT ASC
 );
@@ -465,6 +467,12 @@ create  index COMMANDEARTICLE2_FK on COMMANDEARTICLE (
 IDPRODUIT ASC
 );
 
+/*==============================================================*/
+/* Index: COMMANDEARTICLE3_FK                                   */
+/*==============================================================*/
+create  index COMMANDEARTICLE3_FK on COMMANDEARTICLE (
+IDCOMMANDEARTICLE ASC
+);
 /*==============================================================*/
 /* Table: ETAT                                                  */
 /*==============================================================*/
@@ -548,6 +556,7 @@ IDCOMMANDE ASC
 /*==============================================================*/
 create table LIVRAISONARTICLE 
 (
+	IDLIVRAISONARTICLE	 serial,
     IDLIVRAISON          integer                        not null,
     IDPRODUIT            integer                        not null,
     QUANTITE             integer,
@@ -559,6 +568,7 @@ create table LIVRAISONARTICLE
 /* Index: LIVRAISONARTICLE_PK                                   */
 /*==============================================================*/
 create unique index LIVRAISONARTICLE_PK on LIVRAISONARTICLE (
+IDLIVRAISONARTICLE ASC,
 IDLIVRAISON ASC,
 IDPRODUIT ASC
 );
@@ -575,6 +585,12 @@ IDLIVRAISON ASC
 /*==============================================================*/
 create  index LIVRAISONARTICLE2_FK on LIVRAISONARTICLE (
 IDPRODUIT ASC
+);
+/*==============================================================*/
+/* Index: LIVRAISONARTICLE2_FK                                  */
+/*==============================================================*/
+create  index LIVRAISONARTICLE3_FK on LIVRAISONARTICLE (
+IDLIVRAISONARTICLE ASC
 );
 
 /*==============================================================*/
@@ -632,6 +648,7 @@ ID ASC
 /*==============================================================*/
 create table STOCKARTICLE 
 (
+	IDSTOCKARTICLE		serial,
     IDPRODUIT            integer                        not null,
     IDSTOCK              integer                        not null,
     QUANTITE             integer,
@@ -642,6 +659,7 @@ create table STOCKARTICLE
 /* Index: STOCKARTICLE_PK                                       */
 /*==============================================================*/
 create unique index STOCKARTICLE_PK on STOCKARTICLE (
+IDSTOCKARTICLE ASC,
 IDPRODUIT ASC,
 IDSTOCK ASC
 );
@@ -660,6 +678,12 @@ create  index STOCKARTICLE2_FK on STOCKARTICLE (
 IDSTOCK ASC
 );
 
+/*==============================================================*/
+/* Index: STOCKARTICLE3_FK                                      */
+/*==============================================================*/
+create  index STOCKARTICLE3_FK on STOCKARTICLE (
+IDSTOCKARTICLE ASC
+);
 /*==============================================================*/
 /* Table: TYPEPARTENAIRE                                        */
 /*==============================================================*/
