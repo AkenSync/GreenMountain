@@ -33,7 +33,7 @@ public class HelloController {
 		   e.printStackTrace();
 	   }
   
-	   model.addAttribute("message", "Hello Spring MVC Framework!");
+	   model.addAttribute("message", "Muhaja");
 	   return "hello";
    }
 }
