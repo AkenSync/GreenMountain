@@ -18,6 +18,14 @@ public class BaseMetier {
             throw ex;
         }
 	}
+	public List<BaseModele>  find(BaseModele b) throws Exception{
+		try{
+			return getHd().find(b);
+		}catch (Exception ex){
+            
+            throw ex;
+        }
+	}
 	public void  findById(BaseModele b) throws Exception{
 		try{
 			getHd().findById(b);

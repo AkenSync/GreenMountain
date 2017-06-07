@@ -7,26 +7,28 @@ import net.akenSync.gm.modele.Lieu;
 public class Test {
 
 	public static void main(String[] args) {
-		HibernateDao dao = new HibernateDao();
-        //dao.setSessionFactory(HibernateUtil.getSessionFactory());
-        /*Lieu l=new Lieu();
-        l.setVal("Sainte Marie");
-        try {
-			dao.save(l);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}*/
-		Lieu l=new Lieu();
-		l.setVal("Antsirabe");
-        List<BaseModele> liste=dao.findAll(l);
-        for(BaseModele b: liste){
-        	System.out.println(((Lieu)b).getVal());
-        }
-        Lieu id=new Lieu();
-        id.setId(4);
-        dao.findById(id);
-        System.out.println("Find By Id : "+id.getVal());
-        
+		try {
+			HibernateDao dao = new HibernateDao();
+			// dao.setSessionFactory(HibernateUtil.getSessionFactory());
+			/*
+			 * Lieu l=new Lieu(); l.setVal("Sainte Marie"); try { dao.save(l); }
+			 * catch (Exception e) { e.printStackTrace(); }
+			 */
+			Lieu l = new Lieu();
+			l.setVal("Antsirabe");
+			List<BaseModele> liste = dao.find(l);
+			for (BaseModele b : liste) {
+				//System.out.println(((Lieu) b).getVal());
+			}
+			Lieu id = new Lieu();
+			id.setId(4);
+			dao.findById(id);
+			//System.out.println("Find By Id : " + id.getVal());
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+
 	}
 
 }

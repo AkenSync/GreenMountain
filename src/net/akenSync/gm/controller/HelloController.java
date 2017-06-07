@@ -22,9 +22,10 @@ public class HelloController {
    @RequestMapping(method = RequestMethod.GET)
    public String printHello(ModelMap model) {
 	   Lieu l=new Lieu();
+	   
 	   List<BaseModele> liste;
 	   try {
-		   liste = baseMetier.findAll(l);
+		   liste = baseMetier.find(l);
 		   for(BaseModele b: liste){
 			   System.out.println(((Lieu)b).getVal());
 		   }

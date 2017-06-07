@@ -1,4 +1,5 @@
 package net.akenSync.gm.dao;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,7 +21,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class HibernateDao {
 	private SessionFactory sessionFactory;
-
+	
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
@@ -177,6 +178,35 @@ public class HibernateDao {
         }finally {
             if(session!=null)
                 session.close();
+        }
+    }
+ 
+    public List<BaseModele> find(BaseModele b) throws Exception {
+        Session sess = null;
+        List<BaseModele> res = null;
+        try {
+            res = new ArrayList<BaseModele>();
+            sess = this.getSessionFactory().openSession();
+            res = find(b, sess);
+            return res;
+        } catch (Exception ex) {
+            throw ex;
+        } finally {
+            if (sess != null) {
+                sess.close();
+            }
+        }
+    }
+
+ 
+    public List<BaseModele> find(BaseModele b, Session sess) throws Exception {
+        List<BaseModele> res = null;
+        try {
+            res = new ArrayList<BaseModele>();
+            res = sess.createQuery("FROM " + b.buildQueryFind()).list();
+            return res;
+        } catch (Exception ex) {
+            throw ex;
         }
     }
 }
