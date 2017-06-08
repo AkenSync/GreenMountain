@@ -120,6 +120,18 @@
 				<ul class="sub">
 					<li><a class="" href="#">Fiche Personnel</a></li>
 				</ul></li>
+				<li class="sub-menu">
+					<a href="javascript:;" class=""> <i
+						class="icon_document_alt"></i> <span>CRUD</span> <span
+						class="menu-arrow arrow_carrot-right"></span>
+					</a>
+					<ul class="sub">
+						<li><a class="" href="#">Article</a></li>
+						<li><a class="" href="#">Partenaire</a></li>
+						<li><a class="" href="#">Stock</a></li>
+					</ul>
+					
+				</li>
 		</ul>
 		<!-- sidebar menu end-->
 	</div>
