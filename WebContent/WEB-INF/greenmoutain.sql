@@ -172,17 +172,19 @@ IDPARTENAIRE
 /* Table: COMMANDEARTICLE                                       */
 /*==============================================================*/
 create table COMMANDEARTICLE (
+   IDCOMMANDEARTICLE	INT4				 not null,
    IDCOMMANDE           INT4                 not null,
    IDPRODUIT            INT4                 not null,
    QUANTITE             INT4                 null,
    PRIX                 NUMERIC(8,2)         null,
-   constraint PK_COMMANDEARTICLE primary key (IDCOMMANDE, IDPRODUIT)
+   constraint PK_COMMANDEARTICLE primary key (IDCOMMANDEARTICLE)
 );
 
 /*==============================================================*/
 /* Index: COMMANDEARTICLE_PK                                    */
 /*==============================================================*/
 create unique index COMMANDEARTICLE_PK on COMMANDEARTICLE (
+IDCOMMANDEARTICLE,
 IDCOMMANDE,
 IDPRODUIT
 );
@@ -279,17 +281,19 @@ IDCOMMANDE
 /* Table: LIVRAISONARTICLE                                      */
 /*==============================================================*/
 create table LIVRAISONARTICLE (
+   IDLIVRAISONARTICLE   INT4				 not null,
    IDLIVRAISON          INT4                 not null,
    IDPRODUIT            INT4                 not null,
    QUANTITE             INT4                 null,
    DATELIVRAISON        DATE                 null,
-   constraint PK_LIVRAISONARTICLE primary key (IDLIVRAISON, IDPRODUIT)
+   constraint PK_LIVRAISONARTICLE primary key (IDLIVRAISONARTICLE)
 );
 
 /*==============================================================*/
 /* Index: LIVRAISONARTICLE_PK                                   */
 /*==============================================================*/
 create unique index LIVRAISONARTICLE_PK on LIVRAISONARTICLE (
+IDLIVRAISONARTICLE,
 IDLIVRAISON,
 IDPRODUIT
 );
@@ -360,10 +364,11 @@ ID
 /* Table: STOCKARTICLE                                          */
 /*==============================================================*/
 create table STOCKARTICLE (
+   IDSTOCKARTICLE		INT4				 not null,
    IDPRODUIT            INT4                 not null,
    IDSTOCK              INT4                 not null,
    QUANTITE             INT4                 null,
-   constraint PK_STOCKARTICLE primary key (IDPRODUIT, IDSTOCK)
+   constraint PK_STOCKARTICLE primary key (IDSTOCKARTICLE)
 );
 
 /*==============================================================*/
