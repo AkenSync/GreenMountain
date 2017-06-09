@@ -1,4 +1,4 @@
-/*==============================================================*/
+﻿/*==============================================================*/
 /* DBMS name:      PostgreSQL 8                                 */
 /* Created on:     07/06/2017 15:47:41                          */
 /*==============================================================*/
@@ -6,7 +6,7 @@
 
 drop index ARTICLE_PK;
 
-drop table ARTICLE;
+drop table  ARTICLE cascade;
 
 drop index ASSOCIATION_8_FK;
 
@@ -14,7 +14,7 @@ drop index ASSOCIATION_3_FK;
 
 drop index COMMANDE_PK;
 
-drop table COMMANDE;
+drop table COMMANDE cascade;
 
 drop index COMMANDEARTICLE2_FK;
 
@@ -22,25 +22,25 @@ drop index COMMANDEARTICLE_FK;
 
 drop index COMMANDEARTICLE_PK;
 
-drop table COMMANDEARTICLE;
+drop table COMMANDEARTICLE cascade;
 
 drop index ETAT_PK;
 
-drop table ETAT;
+drop table ETAT cascade;
 
 drop index FACTURATION_PK;
 
-drop table FACTURATION;
+drop table FACTURATION cascade;
 
 drop index LIEU_PK;
 
-drop table LIEU;
+drop table LIEU cascade;
 
 drop index ASSOCIATION_5_FK;
 
 drop index LIVRAISON_PK;
 
-drop table LIVRAISON;
+drop table LIVRAISON cascade;
 
 drop index LIVRAISONARTICLE2_FK;
 
@@ -48,19 +48,19 @@ drop index LIVRAISONARTICLE_FK;
 
 drop index LIVRAISONARTICLE_PK;
 
-drop table LIVRAISONARTICLE;
+drop table LIVRAISONARTICLE cascade;
 
 drop index ASSOCIATION_7_FK;
 
 drop index PARTENAIRE_PK;
 
-drop table PARTENAIRE;
+drop table PARTENAIRE cascade;
 
 drop index ASSOCIATION_2_FK;
 
 drop index STOCK_PK;
 
-drop table STOCK;
+drop table STOCK cascade;
 
 drop index STOCKARTICLE2_FK;
 
@@ -68,15 +68,15 @@ drop index STOCKARTICLE_FK;
 
 drop index STOCKARTICLE_PK;
 
-drop table STOCKARTICLE;
+drop table STOCKARTICLE cascade;
 
 drop index TYPEPARTENAIRE_PK;
 
-drop table TYPEPARTENAIRE;
+drop table TYPEPARTENAIRE cascade;
 
 drop index UTILISATEUR_PK;
 
-drop table UTILISATEUR;
+drop table UTILISATEUR cascade;
 
 drop sequence S_ARTICLE;
 
@@ -122,10 +122,10 @@ create sequence S_UTILISATEUR;
 /* Table: ARTICLE                                               */
 /*==============================================================*/
 create table ARTICLE (
-   IDPRODUIT            SERIAL not null,
+   ID            SERIAL not null,
    LIBELLE              VARCHAR(1024)        null,
    CODE                 VARCHAR(20)          null,
-   PRIX                 NUMERIC(8,2)         null,
+   PRIX                 DOUBLE PRECISION         null,
    constraint PK_ARTICLE primary key (IDPRODUIT)
 );
 
@@ -133,14 +133,14 @@ create table ARTICLE (
 /* Index: ARTICLE_PK                                            */
 /*==============================================================*/
 create unique index ARTICLE_PK on ARTICLE (
-IDPRODUIT
+ID
 );
 
 /*==============================================================*/
 /* Table: COMMANDE                                              */
 /*==============================================================*/
 create table COMMANDE (
-   IDCOMMANDE           SERIAL not null,
+   ID          SERIAL not null,
    IDPARTENAIRE         INT4                 not null,
    IDETAT               INT4                 not null,
    DATELIVRAISON        DATE                 null,
@@ -151,7 +151,7 @@ create table COMMANDE (
 /* Index: COMMANDE_PK                                           */
 /*==============================================================*/
 create unique index COMMANDE_PK on COMMANDE (
-IDCOMMANDE
+ID
 );
 
 /*==============================================================*/
@@ -172,11 +172,11 @@ IDPARTENAIRE
 /* Table: COMMANDEARTICLE                                       */
 /*==============================================================*/
 create table COMMANDEARTICLE (
-   IDCOMMANDEARTICLE	INT4				 not null,
+   ID	INT4				 not null,
    IDCOMMANDE           INT4                 not null,
    IDPRODUIT            INT4                 not null,
    QUANTITE             INT4                 null,
-   PRIX                 NUMERIC(8,2)         null,
+   PRIX                 DOUBLE PRECISION         null,
    constraint PK_COMMANDEARTICLE primary key (IDCOMMANDEARTICLE)
 );
 
@@ -184,7 +184,7 @@ create table COMMANDEARTICLE (
 /* Index: COMMANDEARTICLE_PK                                    */
 /*==============================================================*/
 create unique index COMMANDEARTICLE_PK on COMMANDEARTICLE (
-IDCOMMANDEARTICLE,
+ID,
 IDCOMMANDE,
 IDPRODUIT
 );

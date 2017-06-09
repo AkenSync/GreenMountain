@@ -16,4 +16,9 @@ public class DashboardController {
 		   model.addAttribute("message", "AkenSync - GreenMountain");
 		   return "dashboard";
 	   }
+	@RequestMapping("/partenaire")
+	public String toPartenaire(ModelMap model) {
+		   model.addAttribute("message", "AkenSync - GreenMountain TEst PArtenaire");
+		   return "hello";
+	   }
 }
