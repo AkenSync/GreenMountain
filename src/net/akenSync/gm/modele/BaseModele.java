@@ -31,8 +31,9 @@ public abstract class BaseModele implements Serializable{
         String upper="";
         for(int i=0; i<champs.length;i++)
         {
-            //Method met=this.getClass().getMethod("get"+util.premierMaj(champs[i].getName()), null);
+           
             System.out.println("utiltest " + util.premierMaj(champs[i].getName()).toString());
+    
             Method met=this.getClass().getMethod("get"+util.premierMaj(champs[i].getName()), null);
             Object obj=met.invoke(this, null);
             operateur = " = ";
@@ -43,6 +44,7 @@ public abstract class BaseModele implements Serializable{
                 String val=obj.toString();
                 switch(obj.getClass().getName())
                 {
+                	
                     case("java.util.Date"):
                         val=util.dateToString((Date)obj);  
                         break;

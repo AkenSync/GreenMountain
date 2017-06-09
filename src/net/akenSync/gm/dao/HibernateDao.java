@@ -204,6 +204,7 @@ public class HibernateDao {
         try {
             res = new ArrayList<BaseModele>();
             res = sess.createQuery("FROM " + b.buildQueryFind()).list();
+            
             return res;
         } catch (Exception ex) {
             throw ex;
