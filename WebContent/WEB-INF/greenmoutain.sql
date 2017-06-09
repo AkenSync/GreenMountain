@@ -127,6 +127,7 @@ create table ARTICLE (
    CODE                 VARCHAR(20)          null,
    PRIX                 DOUBLE PRECISION         null,
    constraint PK_ARTICLE primary key (IDPRODUIT)
+
 );
 
 /*==============================================================*/
@@ -186,7 +187,7 @@ create table COMMANDEARTICLE (
 create unique index COMMANDEARTICLE_PK on COMMANDEARTICLE (
 ID,
 IDCOMMANDE,
-IDPRODUIT
+IDARTICLE
 );
 
 /*==============================================================*/
@@ -200,7 +201,7 @@ IDCOMMANDE
 /* Index: COMMANDEARTICLE2_FK                                   */
 /*==============================================================*/
 create  index COMMANDEARTICLE2_FK on COMMANDEARTICLE (
-IDPRODUIT
+IDARTICLE
 );
 
 /*==============================================================*/
@@ -240,16 +241,16 @@ IDFACTURATION
 /* Table: LIEU                                                  */
 /*==============================================================*/
 create table LIEU (
-   ID                   SERIAL not null,
+   IDLIEU                   SERIAL not null,
    LIBELLE              VARCHAR(1024)        null,
-   constraint PK_LIEU primary key (ID)
+   constraint PK_LIEU primary key (IDLIEU)
 );
 
 /*==============================================================*/
 /* Index: LIEU_PK                                               */
 /*==============================================================*/
 create unique index LIEU_PK on LIEU (
-ID
+IDLIEU
 );
 
 /*==============================================================*/
@@ -283,7 +284,7 @@ IDCOMMANDE
 create table LIVRAISONARTICLE (
    IDLIVRAISONARTICLE   INT4				 not null,
    IDLIVRAISON          INT4                 not null,
-   IDPRODUIT            INT4                 not null,
+   IDARTICLE            INT4                 not null,
    QUANTITE             INT4                 null,
    DATELIVRAISON        DATE                 null,
    constraint PK_LIVRAISONARTICLE primary key (IDLIVRAISONARTICLE)
@@ -295,7 +296,7 @@ create table LIVRAISONARTICLE (
 create unique index LIVRAISONARTICLE_PK on LIVRAISONARTICLE (
 IDLIVRAISONARTICLE,
 IDLIVRAISON,
-IDPRODUIT
+IDARTICLE
 );
 
 /*==============================================================*/
@@ -309,7 +310,7 @@ IDLIVRAISON
 /* Index: LIVRAISONARTICLE2_FK                                  */
 /*==============================================================*/
 create  index LIVRAISONARTICLE2_FK on LIVRAISONARTICLE (
-IDPRODUIT
+IDARTICLE
 );
 
 /*==============================================================*/
@@ -365,7 +366,7 @@ ID
 /*==============================================================*/
 create table STOCKARTICLE (
    IDSTOCKARTICLE		INT4				 not null,
-   IDPRODUIT            INT4                 not null,
+   IDARTICLE            INT4                 not null,
    IDSTOCK              INT4                 not null,
    QUANTITE             INT4                 null,
    constraint PK_STOCKARTICLE primary key (IDSTOCKARTICLE)
@@ -375,7 +376,7 @@ create table STOCKARTICLE (
 /* Index: STOCKARTICLE_PK                                       */
 /*==============================================================*/
 create unique index STOCKARTICLE_PK on STOCKARTICLE (
-IDPRODUIT,
+IDARTICLE,
 IDSTOCK
 );
 
@@ -383,7 +384,7 @@ IDSTOCK
 /* Index: STOCKARTICLE_FK                                       */
 /*==============================================================*/
 create  index STOCKARTICLE_FK on STOCKARTICLE (
-IDPRODUIT
+IDARTICLE
 );
 
 /*==============================================================*/
@@ -441,8 +442,8 @@ alter table COMMANDEARTICLE
       on delete restrict on update restrict;
 
 alter table COMMANDEARTICLE
-   add constraint FK_COMMANDE_COMMANDEA_ARTICLE foreign key (IDPRODUIT)
-      references ARTICLE (IDPRODUIT)
+   add constraint FK_COMMANDE_COMMANDEA_ARTICLE foreign key (IDARTICLE)
+      references ARTICLE (IDARTICLE)
       on delete restrict on update restrict;
 
 alter table LIVRAISON
@@ -456,8 +457,8 @@ alter table LIVRAISONARTICLE
       on delete restrict on update restrict;
 
 alter table LIVRAISONARTICLE
-   add constraint FK_LIVRAISO_LIVRAISON_ARTICLE foreign key (IDPRODUIT)
-      references ARTICLE (IDPRODUIT)
+   add constraint FK_LIVRAISO_LIVRAISON_ARTICLE foreign key (IDARTICLE)
+      references ARTICLE (IDARTICLE)
       on delete restrict on update restrict;
 
 alter table PARTENAIRE
@@ -467,12 +468,12 @@ alter table PARTENAIRE
 
 alter table STOCK
    add constraint FK_STOCK_ASSOCIATI_LIEU foreign key (ID)
-      references LIEU (ID)
+      references LIEU (IDLIEU)
       on delete restrict on update restrict;
 
 alter table STOCKARTICLE
-   add constraint FK_STOCKART_STOCKARTI_ARTICLE foreign key (IDPRODUIT)
-      references ARTICLE (IDPRODUIT)
+   add constraint FK_STOCKART_STOCKARTI_ARTICLE foreign key (IDARTICLE)
+      references ARTICLE (IDARTICLE)
       on delete restrict on update restrict;
 
 alter table STOCKARTICLE

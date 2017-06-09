@@ -15,7 +15,7 @@ public class Test {
 			 * catch (Exception e) { e.printStackTrace(); }
 			 */
 			Lieu l = new Lieu();
-			l.setVal("Antsirabe");
+			l.setLibelle("Antsirabe");
 			List<BaseModele> liste = dao.find(l);
 			for (BaseModele b : liste) {
 				//System.out.println(((Lieu) b).getVal());
