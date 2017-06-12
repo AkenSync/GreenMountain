@@ -22,6 +22,8 @@ public class StockController {
 		model.addAttribute("code", stock.getCode());
 		model.addAttribute("label", stock.getLabel());
 		model.addAttribute("description", stock.getDescription());
+		
+		model.addAttribute("message", "insertion successfull");
 		return "Stock/result";
 	}
 }

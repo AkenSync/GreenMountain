@@ -40,7 +40,7 @@
 	<div class="row">
           <div class="col-lg-12">
 			<section class="panel"> 
-			<header class="panel-heading"> Resultat </header>
+			<header class="panel-heading"> Resultat : ${message } </header>
 			<div class="panel-body">
 				<p>Message: </p>
 				
