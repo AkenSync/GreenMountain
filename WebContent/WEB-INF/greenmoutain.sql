@@ -175,7 +175,7 @@ IDPARTENAIRE
 create table COMMANDEARTICLE (
    ID	INT4				 not null,
    IDCOMMANDE           INT4                 not null,
-   IDPRODUIT            INT4                 not null,
+   IDARTICLE            INT4                 not null,
    QUANTITE             INT4                 null,
    PRIX                 DOUBLE PRECISION         null,
    constraint PK_COMMANDEARTICLE primary key (IDCOMMANDEARTICLE)

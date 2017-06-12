@@ -61,7 +61,7 @@
 			</a>
 				<ul class="sub">
 					<li><a class="" href="#">Article</a></li>
-					<li><a class="" href="#">Partenaire</a></li>
+					<li><a class="" href="partenaire/testValidation">Partenaire</a></li>
 					<li><a class="" href="#">Stock</a></li>
 				</ul></li>
 		</ul>
