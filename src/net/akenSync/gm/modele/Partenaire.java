@@ -18,7 +18,6 @@ import javax.persistence.Table;
 public class Partenaire extends BaseModele{
 	@Column(name = "idtypepartenaire")
 	private Integer idtypepartenaire;
-	@Column(name = "libelle")
 	private String libelle;
 	public Integer getIdtypepartenaire() {
 		return idtypepartenaire;

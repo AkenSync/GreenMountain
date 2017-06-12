@@ -1,6 +1,7 @@
 package net.akenSync.gm.controller;
 
 import java.util.Map;
+
 import net.akenSync.gm.modele.Partenaire;
 
 import org.springframework.stereotype.Controller;
@@ -17,5 +18,5 @@ public class PartenaireController {
 	        model.put("userForm", p);
 	        return "Test";
 	    }
-	 
+
 }
