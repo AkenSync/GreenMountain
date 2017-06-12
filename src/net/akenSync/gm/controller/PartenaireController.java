@@ -2,7 +2,6 @@ package net.akenSync.gm.controller;
 
 import java.util.Map;
 
-import javax.validation.Valid;
 
 import net.akenSync.gm.modele.Partenaire;
 
@@ -23,7 +22,7 @@ public class PartenaireController {
 	    }
 	 
 	    @RequestMapping(value = "/login", method = RequestMethod.POST)
-	    public String doLogin(@Valid @ModelAttribute("userForm") Partenaire userForm,
+	    public String doLogin(@ModelAttribute("userForm") Partenaire userForm,
 	            BindingResult result, Map<String, Object> model) {
 	 
 	        if (result.hasErrors()) {
