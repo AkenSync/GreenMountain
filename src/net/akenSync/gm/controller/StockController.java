@@ -11,12 +11,12 @@ import net.akenSync.gm.formModele.Stock;
 
 @Controller
 public class StockController {
-	@RequestMapping(value = "/stock", method = RequestMethod.GET)
+	@RequestMapping(value = "/Stock", method = RequestMethod.GET)
 	public ModelAndView showForm() {
 		return new ModelAndView("Stock/stock", "command", new Stock());
 	}
 
-	@RequestMapping(value = "/addStock", method = RequestMethod.POST)
+	@RequestMapping(value = "/AddStock", method = RequestMethod.POST)
 	public String addStock(@ModelAttribute("akenSync-gm") Stock stock, ModelMap model) {
 		model.addAttribute("id", stock.getId());
 		model.addAttribute("code", stock.getCode());

@@ -2,14 +2,11 @@ package net.akenSync.gm.controller;
 
 import java.util.List;
 
-import net.akenSync.gm.dao.HibernateDao;
 import net.akenSync.gm.metier.BaseMetier;
 import net.akenSync.gm.modele.Article;
 import net.akenSync.gm.modele.BaseModele;
-import net.akenSync.gm.modele.Lieu;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
