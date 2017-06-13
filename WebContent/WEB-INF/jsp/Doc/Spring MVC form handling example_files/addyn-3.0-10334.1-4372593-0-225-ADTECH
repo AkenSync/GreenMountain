@@ -1,0 +1,5 @@
+document.write("<div id='[ID]'></div>\n");
+ADM_PL = {wId:3062041, pId:94675583, rank:1,width:300, height:300,clk:'[External click-tracking goes here (NOT URL-encoded)]'};window._Admeta=window._Admeta||{};(function(){ADM_PL.tagId='[ID]';window._Admeta.aTags=window._Admeta.aTags||[];window._Admeta.aTags.push(ADM_PL);if(window.Admeta&&window.Admeta.processAsync) window.Admeta.processAsync();else if(window._Admeta.aTags.length==1){var ajs=document.createElement("script");ajs.async=true;ajs.type="text/javascript";ajs.src="//s.atemda.com/Admeta.js";var node=document.getElementsByTagName("script")[0];node.parentNode.insertBefore(ajs, node);}})();
+
+
+document.write('<img src="https://atpixelus.alephd.com/post_adtech?cSTkS8uGk1ZdZai0.fOWpnQR38bfIZSPgB20doC1gqhSUNkx2HCJ3hgKl3yFqyqV8KggS.z3UQyKzU1qG9WkCX8.VgNli0ybEYzmSRGhj01zmLMolisPkPRFjhllBrbHXKo65Cc9a9ejjBxZN5QqIcvSqzd6V05AGd9cIkDXIIfXEyr6ULacCPpIe.rx.QBP28XxjlB9FRxal1szhCy1nQ==" width="1" height="1"  style="display:none;">');

@@ -18,22 +18,9 @@
     <div align="center">
         <h2>Spring MVC Form Validation Demo - Login Form</h2>
         <table border="0" width="90%">
-        <form:form action="test" commandName="userForm">
-                <tr>
-                    <td align="left" width="20%">Email: </td>
-                    <td align="left" width="40%"></td>
-                    <td align="left"></td>
-                </tr>
-                <tr>
-                    <td>Password: </td>
-                    <td><form:password path="password" size="30"/></td>
-                    <td><form:errors path="password" cssClass="error"/></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td align="center"><input type="submit" value="Login"/></td>
-                    <td></td>
-                </tr>
+        <form:form action="test" modelAttribute="partenaire" method="post">
+               <form:input path="name" type="text" /> <!-- bind to user.name-->
+				<form:errors path="name" />
         </form:form>
         </table>
     </div>
