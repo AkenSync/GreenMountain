@@ -21,8 +21,8 @@
         <form:form action="test" commandName="userForm">
                 <tr>
                     <td align="left" width="20%">Email: </td>
-                    <td align="left" width="40%"><form:input path="email" size="30"/></td>
-                    <td align="left"><form:errors path="email" cssClass="error"/></td>
+                    <td align="left" width="40%"></td>
+                    <td align="left"></td>
                 </tr>
                 <tr>
                     <td>Password: </td>
