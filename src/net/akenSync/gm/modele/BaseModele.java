@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 import net.akenSync.gm.util.Util;
 @MappedSuperclass
-public abstract class BaseModele implements Serializable{
+public abstract class BaseModele extends Validable implements Serializable{
 	@Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE,generator = "sequence_id")
 	private Integer id;

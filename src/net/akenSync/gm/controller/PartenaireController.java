@@ -9,12 +9,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import net.akenSync.gm.formModele.PartenaireFormModel;
 
 @Controller
 public class PartenaireController {
-	
 	@RequestMapping(value = "/Partenaire", method = RequestMethod.GET)
 	public ModelAndView showForm() {
 		return new ModelAndView("Partenaire", "command", new PartenaireFormModel());
