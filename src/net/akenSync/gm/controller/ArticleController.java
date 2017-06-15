@@ -5,36 +5,77 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import net.akenSync.gm.metier.BaseMetier;
 import net.akenSync.gm.modele.Article;
 import net.akenSync.gm.modele.BaseModele;
 import net.akenSync.gm.modele.Lieu;
+import net.akenSync.gm.modele.Student;
 
 @Controller
-@RequestMapping("/Article")
+@RequestMapping("/ArticleController")
 public class ArticleController {
+
 	@Autowired
 	private BaseMetier baseMetier;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String ListeArticle(ModelMap model) {
-		Article article = new Article();
+	@RequestMapping(value = "/Article", method = RequestMethod.GET)
+	public ModelAndView student() {
+		return new ModelAndView("Article", "command", new Article());
+	}
+
+	@RequestMapping(value = "/AddArticle", method = RequestMethod.POST)
+	public String addStudent(@ModelAttribute("SpringWeb") Article article, ModelMap model) {
+		Article art = new Article();
+		art.setId(1);
+		art.setLibelle("articletest");
+		art.setCode("CODEART");
+		art.setPrix(1000.0);
+		model.addAttribute("message", article.getLibelle());
+		model.addAttribute("testart", art);
+		return "ListeArticle";
+	}
+
+	@RequestMapping(value = "/ListeArticle", method = RequestMethod.GET)
+	public String index(ModelMap model) {
 		try {
+			Article art = new Article();
+			art.setId(1);
+			art.setLibelle("articletest");
+			art.setCode("CODEART");
+			art.setPrix(1000.0);
+			Article article = new Article();
 			List<BaseModele> lb = baseMetier.find(new Article());
 			List<Article> listeArticle = new ArrayList<Article>();
 			for (int x = 0; x < lb.size(); x++) {
 				listeArticle.add((Article) lb.get(x));
 			}
-		model.addAttribute("listeArticle", listeArticle);
-		} catch (Exception e) {
-
-			e.printStackTrace();
+			model.addAttribute("listeArticle", listeArticle);
+			model.addAttribute("article", art);
+			//model.addAllAttributes(listeArticle);
+			return "ListeArticle";			
 		}
-
-		return "Article";
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return "ListeArticle";
 	}
+	/*
+	 * @RequestMapping(method = RequestMethod.GET) public String
+	 * ListeArticle(ModelMap model) { Article article = new Article(); try {
+	 * List<BaseModele> lb = baseMetier.find(new Article()); List<Article>
+	 * listeArticle = new ArrayList<pgArticle>(); for (int x = 0; x < lb.size();
+	 * x++) { listeArticle.add((Article) lb.get(x)); }
+	 * model.addAttribute("listeArticle", listeArticle); } catch (Exception e) {
+	 * 
+	 * e.printStackTrace(); }
+	 * 
+	 * return "Article"; }
+	 */
 }

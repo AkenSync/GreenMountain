@@ -9,6 +9,7 @@ import javax.persistence.*;
     @AttributeOverride(name = "id", column = @Column(name = "idarticle"))
 })
 public class Article  extends BaseModele{
+	
 	@Column(name = "libelle")
 	private String libelle;
 	@Column(name = "code")
