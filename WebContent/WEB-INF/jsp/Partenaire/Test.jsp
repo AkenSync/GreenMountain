@@ -18,9 +18,11 @@
     <div align="center">
         <h2>Spring MVC Form Validation Demo - Login Form</h2>
         <table border="0" width="90%">
-        <form:form action="test" modelAttribute="partenaire" method="post">
-               <form:input path="name" type="text" /> <!-- bind to user.name-->
-				<form:errors path="name" />
+        <form:form action="AddPartenaire" commandName="lieuForm" method="post">
+               <form:input path="libelle" type="text" /> 
+				<div class="has-error">
+                        <form:errors path="libelle" class="help-inline"/>
+                 </div>
         </form:form>
         </table>
     </div>

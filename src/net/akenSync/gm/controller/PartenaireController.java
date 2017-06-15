@@ -1,7 +1,6 @@
 package net.akenSync.gm.controller;
 
 import java.util.Map;
-
 import net.akenSync.gm.formModele.Stock;
 import net.akenSync.gm.modele.Partenaire;
 
@@ -24,18 +23,13 @@ public class PartenaireController {
 	}
 
 	@RequestMapping(value = "/AddPartenaire", method = RequestMethod.POST)
-	public String saveOrUpdatePartenaire(@ModelAttribute("partenaire") Partenaire p,
-			BindingResult result, Model model,final RedirectAttributes redirectAttributes) {
-		if (result.hasErrors()) {
-			return "Partenaire/Test";
-		} else {
+	public String saveOrUpdatePartenaire(@ModelAttribute("userForm") Partenaire p,
+			BindingResult result, ModelMap model) {
+		if(result.hasErrors()) {
+            return "Partenaire/Test";
+    }
 
-			// Add message to flash scope
-			redirectAttributes.addFlashAttribute("css", "success");
-			
-			// POST/REDIRECT/GET
-			return "Partenaire/Test";
-
-		}
+    model.addAttribute("success", "Dear "+ p.getLibelle()+" , your Registration completed successfully");
+    return "Partenaire/Success";
 	}
 }

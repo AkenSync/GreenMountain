@@ -13,6 +13,12 @@
    <context:component-scan base-package="net.akenSync.gm" />
    <mvc:resources mapping="/resources/**" location="/resources/" />
    <mvc:annotation-driven/>
+   <mvc:default-servlet-handler />
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename">
+            <value>messages</value>
+        </property>
+    </bean>
    <!-- Getting Database properties -->
     <context:property-placeholder location="classpath:application.properties" />
 	<bean id="baseMetier" class="net.akenSync.gm.metier.BaseMetier">
