@@ -5,7 +5,7 @@
 	<div id="sidebar" class="nav-collapse ">
 		<!-- sidebar menu start-->
 		<ul class="sidebar-menu">
-			<li><a class="" href="dashboard"> <i class="icon_house_alt"></i> <span>Dashboard</span>
+			<li><a class="" href="Dashboard"> <i class="icon_house_alt"></i> <span>Dashboard</span>
 			</a></li>
 			<li class="sub-menu"><a href="javascript:;" class=""> <i class="icon_download"></i> <span>Achat</span> <span
 					class="menu-arrow arrow_carrot-right"
@@ -60,9 +60,9 @@
 				></span>
 			</a>
 				<ul class="sub">
-					<li><a class="" href="#">Article</a></li>
-					<li><a class="" href="partenaire/testValidation">Partenaire</a></li>
-					<li><a class="" href="#">Stock</a></li>
+					<li><a class="" href="Article">Article</a></li>
+					<li><a class="" href="Partenaire">Partenaire</a></li>
+					<li><a class="" href="Stock">Stock</a></li>
 				</ul></li>
 		</ul>
 		<!-- sidebar menu end-->
