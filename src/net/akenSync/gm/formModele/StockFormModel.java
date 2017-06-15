@@ -1,12 +1,12 @@
 package net.akenSync.gm.formModele;
 
-public class Stock {
+public class StockFormModel {
 	private long id;
 	private String code;
 	private String label;
 	private String description;
 
-	public Stock(long id, String code, String label, String description) {
+	public StockFormModel(long id, String code, String label, String description) {
 		super();
 		this.id = id;
 		this.code = code;
@@ -14,7 +14,7 @@ public class Stock {
 		this.description = description;
 	}
 
-	public Stock() {
+	public StockFormModel() {
 		super();
 	}
 
@@ -49,5 +49,13 @@ public class Stock {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	@Override
+	public String toString() {
+		return "StockFormModel [id=" + id + ", code=" + code + ", label=" + label + ", description=" + description
+				+ "]";
+	}
+	
+	
 
 }

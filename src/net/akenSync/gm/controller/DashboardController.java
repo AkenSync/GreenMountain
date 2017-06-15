@@ -6,16 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/dashboard")
 public class DashboardController {
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value ={ "/Dashboard"}, method = RequestMethod.GET)
 	public String printHello(ModelMap model) {
 		   model.addAttribute("message", "AkenSync - GreenMountain");
-		   return "dashboard";
+		   return "Dashboard";
 	}
-	@RequestMapping("/partenaire")
-	public String toPartenaire(ModelMap model) {
-		   model.addAttribute("message", "AkenSync - GreenMountain TEst PArtenaire");
-		   return "hello";
-	   }
 }

@@ -12,36 +12,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import net.akenSync.gm.metier.BaseMetier;
 import net.akenSync.gm.modele.Article;
 import net.akenSync.gm.modele.BaseModele;
 import net.akenSync.gm.modele.Lieu;
 import net.akenSync.gm.modele.Student;
 
-@Controller
-@RequestMapping("/ArticleController")
-public class ArticleController {
 
+
+
+	
+
+
+import net.akenSync.gm.formModele.ArticleFormModel;
+
+@Controller
+public class ArticleController {
 	@Autowired
 	private BaseMetier baseMetier;
-
 	@RequestMapping(value = "/Article", method = RequestMethod.GET)
-	public ModelAndView student() {
-		return new ModelAndView("Article", "command", new Article());
+	public ModelAndView showForm() {
+		return new ModelAndView("Article", "command", new ArticleFormModel());
 	}
-
+	
 	@RequestMapping(value = "/AddArticle", method = RequestMethod.POST)
-	public String addStudent(@ModelAttribute("SpringWeb") Article article, ModelMap model) {
-		Article art = new Article();
-		art.setId(1);
-		art.setLibelle("articletest");
-		art.setCode("CODEART");
-		art.setPrix(1000.0);
-		model.addAttribute("message", article.getLibelle());
-		model.addAttribute("testart", art);
-		return "ListeArticle";
+	public ModelAndView addStock(@ModelAttribute("akenSync-gm") ArticleFormModel form, ModelMap model) {
+		ModelAndView result = new ModelAndView("Article","command",new ArticleFormModel());
+		result.addObject("id", form.getId());
+		result.addObject("code", form.getCode());
+		result.addObject("libelle", form.getLibelle());
+		result.addObject("prix", form.getPrix());
+		result.addObject("message", "Fonction en cours de developpement");
+		System.out.println(form.toString());
+		return result;
 	}
-
 	@RequestMapping(value = "/ListeArticle", method = RequestMethod.GET)
 	public String index(ModelMap model) {
 		try {
@@ -79,3 +84,7 @@ public class ArticleController {
 	 * return "Article"; }
 	 */
 }
+	
+
+	
+
