@@ -1,0 +1,492 @@
+
+@import url("blue-text.css");
+
+/* ---------------------------------------------------------------------- */
+/* Mise en forme de la page                                               */
+/* ---------------------------------------------------------------------- */
+
+/*
+	position: relative;
+	left: 180px;
+	width: 750px;
+	padding-top: 30px;
+	padding-bottom: 100px;
+*/
+
+div#content {
+	position: relative;
+	left: 180px;
+	top: 30px;
+	padding-bottom: 60px;
+	width: 750px;
+/***
+	border: solid 1px red;
+***/
+	}
+
+div#leftFrame {
+	position: absolute;
+	width: 160px;
+	top: 60px;
+	left: 10px;
+/***
+	border: solid 1px red;
+***/
+	}
+
+#header-search a {
+	/**
+	border:			solid 1px red;
+	**/
+	position:		absolute;
+	width:			44px;
+	height:			26px;
+	top:			0px;
+	right:			0px;
+	z-index:		5;
+	background-image:	url(files/icon_search.gif);
+	background-position:	center center;
+	background-repeat:	no-repeat;
+	}
+
+/* ---------------------------------------------------------------------- */
+/* parties de la page                                                     */
+/* ---------------------------------------------------------------------- */
+
+div#header {
+	position: relative;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: #87CEFA;
+	border-bottom: solid 2px blue;
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	}
+
+span.header-item {
+	border-right: solid 1px blue;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 10pt;
+	text-decoration: none;
+	}
+
+/* ---------------------------------------------------------------------- */
+/* definition de la zone "printable"                                      */
+/* ---------------------------------------------------------------------- */
+
+div#printableXX {
+	width: 140px;
+	margin-top: 40px;
+	height: auto;
+	text-align: right;
+	background-image:	url(files/pdf.gif);
+	background-position:	left center;
+	background-repeat:	no-repeat;
+/***
+	border: dashed 1px red;
+***/
+	}
+
+div#printable a {
+	display: block;
+	width: 120px;
+	margin-top: 40px;
+	height: auto;
+	text-align: right;
+	background-image:	url(files/pdf.gif);
+	background-position:	left center;
+	background-repeat:	no-repeat;
+	text-decoration: none;
+/***
+	border: dashed 1px red;
+***/
+	}
+
+/* ---------------------------------------------------------------------- */
+/* definition de la zone "table-of-contents"                              */
+/* ---------------------------------------------------------------------- */
+
+#table-of-contents {
+	width: 35%;
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-top: -10px;
+	margin-bottom: 10px;
+	padding: 0px;
+	float: right;
+	border: solid 2px blue;
+	background: #deedff;
+	padding-bottom: 3px;
+/***
+	border: dashed 1px red;
+***/
+	}
+
+.table-of-contents-title {
+	width: 100%;
+	background: #BCDEFF;
+	margin: 0px 0px 0px 0px;
+	padding: 2px 0px 2px 0px;
+	font-size: smaller;
+	color: blue;
+	font-weight: 		bold;
+	}
+
+.table-of-contents-level1 {
+	font-size: smaller;
+	margin: 0px 5px 0px 5px;
+	}
+
+.table-of-contents-level2 {
+	font-size: smaller;
+	margin: 0px 5px 0px 20px;
+	}
+
+.table-of-contents-level3 {
+	font-size: smaller;
+	margin: 0px 5px 0px 35px;
+	}
+
+/* ---------------------------------------------------------------------- */
+/* definition du menu                                                     */
+/* ---------------------------------------------------------------------- */
+
+div#menu {
+	margin-top: 40px;
+	width: 150px;
+	}
+
+/* niveau 1 */
+
+div#menu a.menu1 {
+	background-image:	url(files/carres1.png);
+	background-position:	left center;
+	background-repeat:	no-repeat;
+	}
+
+div#menu a.menu1 span {
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: bold;
+	display: block;
+	text-align: left;
+	padding: 0px 0px 0px 22px;
+	}
+
+/* niveau 2 */
+
+div#menu a.menu2 {
+	}
+
+div#menu a.menu2 span {
+	font-size: 9pt;
+	font-style: normal;
+	font-weight: normal;
+	display: block;
+	text-align: left;
+	padding: 0px 0px 0px 15px;
+	}
+
+/* niveau 3 */
+
+div#menu a.menu3 {
+	}
+
+div#menu a.menu3 span {
+	font-size: 9pt;
+	font-style: normal;
+	font-weight: normal;
+	display: block;
+	text-align: left;
+	padding: 0px 0px 0px 30px;
+	}
+
+/* niveau X  */
+
+div#menu a {
+	display: block;
+	margin: 0;
+	padding: 2px 0px 2px 0px;
+	border-bottom: 1px solid blue;
+	background-color: #bcdeff;
+	width: 140px;
+	text-align: left;
+	text-decoration: none;
+	color: #000000;
+	font-size: 10pt;
+	}
+
+div#menu a.menu-active {
+	background-color: #87CEFA;
+	}
+
+div#menu a:first-child {
+	border-top: 1px solid blue;
+	}
+
+div#menu a:hover {
+	background-color: #87CEFA;
+	}
+
+/* ---------------------------------------------------------------------- */
+/* mise en forme du contenu                                               */
+/* ---------------------------------------------------------------------- */
+
+.cadre {
+	border:	dashed 1px blue;
+	padding: 5px;
+	}
+
+.quote {
+	margin-left: 50px;
+	margin-right: 50px;
+	}
+
+div.code, pre.prettyprint {
+	color: black;
+	margin: 9px 0px 9px 40px;
+	padding: 4px 4px 4px 8px;
+	border-left: solid 3px blue;
+	border-right: 0px;
+	border-bottom: 0px;
+	border-top: 0px;
+	font-family: monospace;
+	background-image:	url(files/degrade-bleu.png);
+	background-position:	left top;
+	background-repeat:	repeat-y;
+	max-width: 92%;
+	overflow: auto;
+	}
+
+li div.code {
+	margin-top : 7px;
+	margin-bottom : 7px;
+	}
+
+dd div.code {
+	margin-top : 7px;
+	margin-bottom : 7px;
+	}
+
+div.code pre {
+	margin-top : 0px;
+	margin-bottom : 0px;
+}
+
+div.image {
+	margin-top: 10px;
+}
+
+div.image img {
+	border:	solid 1px blue;
+	color: black;
+	padding: 10px;
+	margin-left: 0px;
+	background: white;
+	max-width: 50%;
+}
+
+div.htex-img {
+	margin-top : 7px;
+	margin-bottom : 7px;
+}
+
+img.htex-img {
+	border:	solid 1px blue;
+	padding: 10px;
+	margin-left: 0px;
+	background: white;
+	max-width: 90%;
+}
+
+div.htex-img-center {
+	margin-top : 7px;
+	margin-bottom : 7px;
+	text-align: center;
+}
+
+img.htex-width-7cm  { width:  6cm; }
+img.htex-width-8cm  { width:  7cm; }
+img.htex-width-9cm  { width:  8cm; }
+img.htex-width-10cm { width:  9cm; }
+img.htex-width-11cm { width: 10cm; }
+img.htex-width-12cm { width: 11cm; }
+img.htex-width-13cm { width: 12cm; }
+img.htex-width-14cm { width: 13cm; }
+img.htex-width-15cm { width: 14cm; }
+
+
+/* image sur fond blanc */
+
+div.htex-image-blanche img {
+	border:	solid 1px blue;
+	color: black;
+	padding: 10px;
+	margin-left: 50px;
+	background: white;
+	}
+
+
+li, dt, dd {
+	margin-top: 8px;
+	margin-bottom: 8px;
+	}
+
+
+li.clist {
+	margin-top: 0px;
+	}
+
+ul.cclist {
+	margin-top: 0px;
+	}
+
+li.cclist {
+	margin-top: 0px;
+	}
+
+div.cclist ul {
+	margin-top: 0px;
+	}
+
+div.cclist ul li {
+	margin-top: 0px;
+	}
+
+
+
+.transparent {
+	background: transparent;
+	}
+
+
+/* ----------------------------------------------------------------------
+--- pour les cadres
+---------------------------------------------------------------------- */
+
+table.htex-frame {
+	background-color: transparent;
+	width : 100%;
+	margin-top: 10px;
+	border-collapse: collapse;
+	}
+
+td.htex-frame-cell {
+	background-color: transparent;
+	width : 20%;
+	/**
+	border: solid 1px red;
+	text-align: justify;
+	**/
+	}
+
+td.htex-frame-first{
+	padding-right: 10px;
+	}
+
+td.htex-frame-middle {
+	padding-left: 10px;
+	padding-right: 10px;
+	}
+
+td.htex-frame-last {
+	padding-left: 10px;
+	}
+
+
+.tex-to-html-com {
+	font-family:	Courier, monospace;
+	font-size:	10pt;
+	font-weight:	bold;
+	color:		blue;
+	/*
+	background:	#87CEFA;
+	padding-left:	3px;
+	padding-right:	3px;
+	*/
+}
+
+.htex-ttt {
+	background-color: lightgrey;
+	padding-left:	5px;
+	padding-right:	5px;
+	padding-bottom:	2px;
+	padding-top:	2px;
+	font-family:	Courier, monospace;
+	font-size:	10pt;
+	font-weight:	bold;
+}
+
+/* couleur de fond pour toutes pages */
+
+OLD-body {
+	background: #deedff;
+	margin: 0px;
+}
+
+body {
+	background-image : url('fond01.jpg');
+	background-repeat: no-repeat;
+    	background-attachment: fixed;
+	background-position: center;
+	margin: 0px;
+}
+
+html {
+	height : 101%; /* pour avoir un barre de defilement a droite */
+}
+
+#allPage {
+	position: relative;
+        width: 940px;
+	min-height: 100%;
+	margin: 0 auto; 
+	border-left: solid 3px blue;
+	border-right: solid 3px blue;
+	background-color : #deedff;
+	padding-bottom: 1200px;
+}
+
+#allPagex {
+	/**
+	border: 1px dashed red;
+	**/
+
+	position: relative;
+        width: 940px;
+	min-height: 100%;
+	margin: 0 auto; 
+	border-left: solid 3px #EC9E00;
+	border-right: solid 3px #EC9E00;
+	background-image: url(img/marge-paille.gif);
+	background-repeat: repeat-y;
+	}
+
+
+/* police et taille */
+
+p,ul,dl,ol,td,dt,dd,li,th,h4,h2,h3,legend,div,body,center {
+/*
+	font-size: 0.89em;
+	font-family: bitstream vera sans, sans-serif;
+	font-family: cursive;
+*/
+	font-family: Arial, sans-serif;
+	font-size: 11pt;
+	}
+
+p,ul,dl,ol,td,dt,dd,li,legend,div,body {
+	text-align: justify;
+	}
+
+pre,tt {
+	font-family: Courier, monospace;
+	font-size: 10pt;
+	}
+
+dt { font-weight: bold; }
+

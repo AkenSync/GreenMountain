@@ -99,6 +99,8 @@ public class HibernateDao {
         }
     }
 	public void save(BaseModele obj) throws Exception{
+		System.out.println("Dans hibernate Dao");
+		System.out.println("b : "+obj.toString());
         Session session = null;
         Transaction tr=null;
         try{

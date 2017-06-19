@@ -32,5 +32,9 @@ public class Partenaire extends BaseModele{
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
+	@Override
+	public String toString() {
+		return "Partenaire [idtypepartenaire=" + idtypepartenaire + ", libelle=" + libelle + "]";
+	}
 	
 }

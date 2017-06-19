@@ -1,0 +1,28 @@
+
+/* ----------------------------------------------------------------------
+--- pour les cadres FILE
+---------------------------------------------------------------------- */
+
+div.htex-FILE {
+	width: 95%;
+	background-color : white;
+	border: solid 1px blue;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+	}
+
+div.htex-FILE > div.htex-TITLE {
+	display: block;
+	background-color : blue;
+	color: white;
+	padding: 2px 2px 2px 2px;
+	}
+
+div.htex-FILE > div.htex-CONTENT {
+	padding: 3px 3px 3px 3px;
+	}
+
+td.htex-center {
+	text-align : center;
+}

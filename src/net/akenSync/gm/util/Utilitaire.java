@@ -72,7 +72,7 @@ public class Utilitaire {
 	public static Method getGetter(Object[] listeGetters, Method setter) {
 		for(Object obj:listeGetters){
 			Method getter=(Method)obj;
-			if(getter.getName().replace("get", "").compareTo(setter.getName().replace("set", ""))==0)return getter;
+			if(getter.getName().replace("get", "").compareToIgnoreCase(setter.getName().replace("set", ""))==0)return getter;
 		}
 		return null;
 	}
