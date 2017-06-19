@@ -1,0 +1,2190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0067)http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+  <script src="./Le modèle M.V.C. de Spring_files/run_prettify.js.téléchargement" type="text/javascript">
+</script>
+  <link rel="stylesheet" type="text/css" media="screen" href="./Le modèle M.V.C. de Spring_files/basic-screen.css">
+  <link rel="stylesheet" type="text/css" media="printer" href="./Le modèle M.V.C. de Spring_files/basic-printer.css">
+  
+
+  <title>Le modèle M.V.C. de Spring</title>
+  <link rel="stylesheet" type="text/css" href="./Le modèle M.V.C. de Spring_files/blue10.screen.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="./Le modèle M.V.C. de Spring_files/blue10.print.css" media="print">
+</head>
+
+<body>
+  <div id="allPage">
+    <div id="header">
+      <span class="header-item" id="header-accueil"><a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/index.html">Accueil</a></span><span class="header-item" id="m26-java"><a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/index.html">Architecture
+      JEE</a></span><span class="header-item" id="m28-unix"><a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/admunix/index.html">Administrer
+      UNIX</a></span><span class="header-item" id="m27-xml"><a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/xml/index.html">XML</a></span><span class="header-item" id="info13"><a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/systeme/index.html">Système</a></span><span class="header-item" id="header-docs"><a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/docs/index.html">Docs</a></span><span class="header-item" id="xdosicalu"><a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/dosicalu/index.html">DOSICALU</a></span><span class="header-item" id="header-dil"><a href="http://dii.univ-mrs.fr/">Département
+      d'informatique</a></span><a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/chercher.html" id="header-search" name="header-search"></a>
+    </div>
+
+    <div id="leftFrame">
+      <div id="menu">
+        <a class="menu1 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/index.html"><span>Cours&nbsp;:</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/1intro.html"><span>&gt;&nbsp;Intro. &amp;
+        historique</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/arch-app.html"><span>&gt;&nbsp;Archi.
+        app.</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/bean.html"><span>&gt;&nbsp;Java Bean</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/jdbc.html"><span>&gt;&nbsp;JDBC</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/servlet.html"><span>&gt;&nbsp;Servlet</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/jsp.html"><span>&gt;&nbsp;JSP</span></a><a class="menu1 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#"><span>TPs (série
+        1)&nbsp;:</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-spring.html"><span>&gt;&nbsp;Intro à
+        Spring</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-jdbc.html"><span>&gt;&nbsp;JDBC</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-jsp1.html"><span>&gt;&nbsp;JSP
+        #1</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-jsp2.html"><span>&gt;&nbsp;JSP #2 : la
+        JSTL</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-jsp3.html"><span>&gt;&nbsp;JSP #3 :
+        JSPX</span></a><a class="menu2 menu-active" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html"><span>&gt;&nbsp;Spring
+        MVC</span></a><a class="menu1 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/index.html"><span>Cours&nbsp;(série
+        2)&nbsp;:</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/ldap.html"><span>&gt;&nbsp;LDAP</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/jndi.html"><span>&gt;&nbsp;JNDI</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/rmi.html"><span>&gt;&nbsp;RMI</span></a><a class="menu1 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#"><span>TPs (série
+        2)&nbsp;:</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-jndi.html"><span>LDAP / JNDI</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-rmi.html"><span>RMI</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-EJB1.html"><span>Les EJB
+        #1</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-EJB2.html"><span>Les EJB #2</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#"><span>Les EJB
+        #3</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-EJB-JPA.html"><span>&nbsp;&nbsp;&nbsp;&gt;
+        JPA</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-EJB-Inter.html"><span>&nbsp;&nbsp;&nbsp;&gt;
+        Intercepteurs</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-JSF.html"><span>Intro à JSF</span></a><a class="menu2 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-REST.html"><span>Les services
+        REST</span></a><a class="menu1 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/devoir.html"><span>Devoir JEE1</span></a><a class="menu2 menu-normal" href="http://ametice.univ-amu.fr/course/view.php?id=24319"><span>&gt;&nbsp;AMETICE</span></a><a class="menu1 menu-normal" href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/jee2-devoir.html"><span>Devoir
+        JEE2</span></a><a class="menu2 menu-normal" href="http://ametice.univ-amu.fr/course/view.php?id=24319"><span>&gt;&nbsp;AMETICE</span></a>
+      </div>
+
+      <div id="printable">
+        <a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.pdf">Version PDF</a>
+      </div>
+    </div>
+
+    <div id="content">
+      <!--TOC-->
+
+      <h1 id="idhtex-h1-1">Le modèle M.V.C. de Spring</h1>
+
+      <div id="table-of-contents">
+        <div class="table-of-contents-title">
+          &nbsp;Sommaire
+        </div>
+
+        <div class="table-of-contents-level1">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h2-1">Introduction</a>
+        </div>
+
+        <div class="table-of-contents-level1">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h2-2">Préalables</a>
+        </div>
+
+        <div class="table-of-contents-level1">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h2-3">Mise en place de Spring
+          MVC</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-1">Maven et Spring</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-2">Un premier
+          contrôleur</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-3">Améliorer les vues</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-4">Découpler les vues et
+          les contrôleurs</a>
+        </div>
+
+        <div class="table-of-contents-level1">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h2-4">Utiliser les
+          annotations</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-5">Utiliser l'espace de nom
+          MVC</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-6">Déclarer les
+          paramètres</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-7">Utiliser de belles
+          adresses</a>
+        </div>
+
+        <div class="table-of-contents-level1">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h2-5">Le traitement des
+          formulaires</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-8">Définir une couche
+          métier</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-9">Lister les produits</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-10">Éditer un produit</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-11">Introduire des données
+          dans un formulaire</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-12">Valider les données</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-13">Traduire les messages
+          de validation</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-14">Traiter des champs
+          complexes</a>
+        </div>
+
+        <div class="table-of-contents-level1">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h2-6">Validation des JavaBean
+          dans JEE 6/7</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-15">Mise en oeuvre</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-16">Créer ses propres
+          contraintes</a>
+        </div>
+
+        <div class="table-of-contents-level1">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h2-7">Utiliser des données en
+          session</a>
+        </div>
+
+        <div class="table-of-contents-level1">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#jdbc">Utiliser JDBC</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-17">Inclure le driver JDBC
+          et le module Spring</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-18">Définition du
+          JavaBean</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h3-19">Configurer Spring</a>
+        </div>
+
+        <div class="table-of-contents-level2">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#web-jdbc">La partie WEB</a>
+        </div>
+
+        <div class="table-of-contents-level1">
+          &gt;&nbsp;<a href="http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/jee/tp-mvc.html#idhtex-h2-9">C'est fini</a>
+        </div>
+      </div>
+
+      <h2 id="idhtex-h2-1">Introduction</h2>
+
+      <p>Le framework <a target="_blank" href="http://www.springframework.org/" shape="rect">Spring</a> est
+      une boite à outils très riche permettant de structurer,
+      d'améliorer et de simplifier l'écriture d'application JEE.
+      Spring est organisé en module</p>
+
+      <div class="clist">
+        <ul>
+          <li>Gestion des instances de classes (JavaBean et/ou
+          métier),</li>
+
+          <li>Programmation orientée Aspect,</li>
+
+          <li>Modèle MVC et outils pour les application WEB,</li>
+
+          <li>Outils pour la DAO (JDBC),</li>
+
+          <li>Outils pour les ORM (Hibernate, iBatis, JPA,
+          ...),</li>
+
+          <li>Outils pour les applications JEE (EJB, JTA, Servlet,
+          JSP, ...),</li>
+        </ul>
+      </div>
+
+      <p><a target="doctab" href="http://docs.spring.io/spring/docs/4.3.3.RELEASE/spring-framework-reference/html/overview.html" shape="rect">Plus d'informations ici</a>.</p>
+
+      <h2 id="idhtex-h2-2">Préalables</h2>
+
+      <p>Durant ce TP nous allons utiliser le conteneur WEB
+      <a target="_blank" href="http://tomcat.apache.org/" shape="rect"><span class="htex-ttt">Tomcat&nbsp;8</span></a>.
+      Préparez un environement pour tester une application WEB
+      basée sur Spring-MVC&nbsp;:</p>
+
+      <ul>
+        <li>Téléchargez (si besoin) <a target="_blank" href="http://tomcat.apache.org/" shape="rect"><span class="htex-ttt">Tomcat&nbsp;8</span></a> et décompressez
+        l'archive.</li>
+
+        <li>Préparez, dans Eclipse, une application WEB basée sur
+        le conteneur <span class="htex-ttt">Tomcat</span> (utilisez
+        l'adaptateur WTP pour Tomcat&nbsp;8).</li>
+
+        <li>Testez une page <span class="htex-ttt">index.jsp</span>
+        très simple.
+
+          <div class="code">
+            <pre xml:space="preserve">&lt;html&gt;
+  &lt;head&gt;&lt;title&gt;Example :: Spring Application&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Example - Spring Application&lt;/h1&gt;
+    &lt;p&gt;This is my test.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+          </div>Vérifiez que cette page est accessible. Faites
+          quelques modifications mineures et testez le résultat.
+        </li>
+
+        <li><a target="doctab" href="http://docs.spring.io/spring/docs/4.3.3.RELEASE/spring-framework-reference/html/index.html" shape="rect">Préparez un onglet vers la
+        documentation</a>.</li>
+
+        <li><a target="docapi" href="http://docs.spring.io/spring/docs/4.3.3.RELEASE/javadoc-api/index.html" shape="rect">Préparez un onglet vers la Javadoc</a>.</li>
+      </ul>
+
+      <h2 id="idhtex-h2-3">Mise en place de Spring MVC</h2>
+
+      <h3 id="idhtex-h3-1">Maven et Spring</h3>
+
+      <p>&#9830;&nbsp;Ajoutez Maven à votre projet : <span class="htex-IMP">Sélectionnez votre projet</span> / <span class="htex-IMP">Bouton-droit</span> / <span class="htex-IMP">Configure</span> / <span class="htex-IMP">Convert
+      to Maven Project</span>. Vous devez à cette étape donner une
+      numéro de version à votre projet. Laissez les valeurs par
+      défaut.</p>
+
+      <p>&#9830;&nbsp;Ajoutez à votre fichier <span class="htex-ttt">pom.xml</span> la version&nbsp;4.3.x de <a target="_blank" href="https://mvnrepository.com/artifact/org.springframework/spring-webmvc" shape="rect">Spring MVC</a>.</p>
+
+      <h3 id="idhtex-h3-2">Un premier contrôleur</h3>
+
+      <p>&#9830;&nbsp;Préparez le fichier <span class="htex-ttt">WEB-INF/web.xml</span> suivant&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    id="WebApp_ID" version="3.0"&gt;
+    &lt;display-name&gt;test-mvc&lt;/display-name&gt;
+
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;springapp&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;springapp&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;*.htm&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+
+    &lt;welcome-file-list&gt;
+        &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+        &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
+    &lt;/welcome-file-list&gt;
+&lt;/web-app&gt;
+</pre>
+      </div>
+
+      <p>Cette configuration va mettre en place une servlet
+      générique qui va se charger du traitement des requêtes (URL
+      qui se terminent par <span class="htex-ttt">.htm</span>).
+      Pour configurer cette servlet, nous allons créer le fichier
+      <span class="htex-ttt">WEB-INF/springapp-servlet.xml</span>&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans     
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.3.xsd"&gt;
+
+    &lt;bean name="/hello.htm" class="springapp.web.HelloController" /&gt;
+
+&lt;/beans&gt;
+</pre>
+      </div>
+
+      <p>Ce fichier de configuration Spring va créer un
+      <span class="htex-ttt">bean</span> et lui donner un nom
+      (<span class="htex-ttt">/hello.htm</span>). C'est notre
+      premier contrôleur. Créez cette classe à partir du code
+      ci-dessous&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
+public class HelloController implements Controller {
+
+    protected final Log logger = LogFactory.getLog(getClass());
+
+    public ModelAndView handleRequest(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+
+        logger.info("Returning hello view");
+        return new ModelAndView("hello.jsp");
+
+    }
+
+}
+</pre>
+      </div>
+
+      <p>&#9830;&nbsp;A cette étape, vous devez trouver dans les
+      traces du serveur la création de ce contrôleur.</p>
+
+      <p>&#9830;&nbsp;Essayez d'utiliser le contrôleur <span class="htex-ttt">hello.htm</span></p>
+
+      <p>&#9830;&nbsp;Visiblement ce contrôleur se termine en
+      donnant la main à une page JSP (<span class="htex-ttt">hello.jsp</span>) destinée à fabriquer la réponse
+      à envoyer au client. Créons cette page&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;html&gt;
+  &lt;head&gt;&lt;title&gt;Hello :: Spring Application&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello - Spring Application&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </div>
+
+      <p>&#9830;&nbsp;Étudiez la classe <span class="htex-ttt">ModelAndView</span>. Cette classe est le coeur du
+      modèle MVC de Spring&nbsp;: Elle permet de séparer d'une
+      part, les contrôleurs qui travaillent sur la requête et
+      d'autres part les vues (pages JSP) qui se chargent du
+      résultat. Entre les deux, les instances de <span class="htex-ttt">ModelAndView</span> transportent à la fois le nom
+      de la vue et les données qui seront affichés par cette vue
+      (c'est-à-dire le <span class="htex-IMP">modèle</span>).</p>
+
+      <h3 id="idhtex-h3-3">Améliorer les vues</h3>
+
+      <p>&#9830;&nbsp;Ajoutez à votre fichier <span class="htex-ttt">pom.xml</span> la version&nbsp;1.2.5 des
+      <a target="_blank" href="https://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-spec" shape="rect">Spécifications de la JSTL</a>.</p>
+
+      <p>&#9830;&nbsp;Ajoutez à votre fichier <span class="htex-ttt">pom.xml</span> la version&nbsp;1.2.5 de <a target="_blank" href="https://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-impl" shape="rect">l'implantation de la JSTL</a>.</p>
+
+      <p>&#9830;&nbsp;Toutes les vues d'une application partagent
+      souvent de nombreuses déclarations. Nous allons les regrouper
+      dans une page JSP. Préparez la page <span class="htex-ttt">WEB-INF/jsp/include.jsp</span> suivante&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;%@ page session="false" %&gt;
+&lt;%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %&gt;
+&lt;%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"  %&gt;
+</pre>
+      </div>
+
+      <p>Nous pouvons maintenant revoir notre page d'accueil
+      (fichier <span class="htex-ttt">index.jsp</span>) en forçant
+      l'utilisateur à utiliser le contrôleur&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;%@ include file="/WEB-INF/jsp/include.jsp" %&gt;
+
+&lt;%-- rediriger le contrôleur hello --%&gt;
+&lt;c:redirect url="/hello.htm"/&gt;
+</pre>
+      </div>
+
+      <p>Testez le bon fonctionnement de cette redirection.</p>
+
+      <p>&#9830;&nbsp;Pour l'instant la page <span class="htex-ttt">hello.jsp</span> est accessible au client dans la
+      mesure ou le client connait le nom de cette page. Dans le
+      modèle MVC, les requêtes doivent <span class="htex-IMP">toujours</span> être traitées par le contrôleur et
+      non pas, directement, par une page JSP. Pour éviter que la
+      page <span class="htex-ttt">hello.jsp</span> ne soit
+      accessible, nous allons la modifier et la déplacer dans
+      <span class="htex-ttt">WEB-INF/jsp/hello.jsp</span>&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;%@ include file="/WEB-INF/jsp/include.jsp" %&gt;
+
+&lt;html&gt;
+  &lt;head&gt;&lt;title&gt;Hello :: Spring Application&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello - Spring Application&lt;/h1&gt;
+    &lt;p&gt;Greetings, it is now &lt;c:out value="${now}" default="None" /&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </div>
+
+      <p>&#9830;&nbsp;Bien entendu, nous devons modifier le
+      contrôleur en conséquence&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import java.io.IOException;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
+public class HelloController implements Controller {
+
+    protected final Log logger = LogFactory.getLog(getClass());
+
+    public ModelAndView handleRequest(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+
+        String now = (new Date()).toString();
+        logger.info("Returning hello view with " + now);
+
+        return new ModelAndView("WEB-INF/jsp/hello.jsp", "now", now);
+    }
+
+}
+</pre>
+      </div>
+
+      <p>Nous avons profité de cette mise à jour pour introduire
+      <span class="htex-IMP">une nouveauté</span>&nbsp;: le
+      contrôleur fabrique maintenant une donnée et transmet cette
+      donnée à la page JSP qui se charge de l'afficher (la
+      date).</p>
+
+      <p><span class="htex-IMP">Exercice</span>&nbsp;: préparez une
+      nouvelle donnée (par exemple un message), passez cette donnée
+      à la page <span class="htex-ttt">hello.jsp</span> et assurez
+      sa présentation.</p>
+
+      <h3 id="idhtex-h3-4">Découpler les vues et les
+      contrôleurs</h3>
+
+      <p>Pour l'instant, le chemin d'accès complet à la vue figure
+      dans le contrôleur. Pour éviter ce couplage fort, nous allons
+      créez un service <span class="htex-IMP">spring</span> qui va
+      se charger de retrouver les vues à partir d'un simple nom.
+      Ajoutez au fichier <span class="htex-ttt">WEB-INF/springapp-servlet.xml</span> le
+      code&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;bean id="viewResolver"
+    class="org.springframework.web.servlet.view.InternalResourceViewResolver"&gt;
+    &lt;property name="viewClass"
+        value="org.springframework.web.servlet.view.JstlView"&gt;&lt;/property&gt;
+    &lt;property name="prefix" value="/WEB-INF/jsp/"&gt;&lt;/property&gt;
+    &lt;property name="suffix" value=".jsp"&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</pre>
+      </div>
+
+      <p>doté de ce service de résolution des noms de vue, le code
+      du contrôleur va devenir&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import java.io.IOException;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
+public class HelloController implements Controller {
+
+    protected final Log logger = LogFactory.getLog(getClass());
+
+    public ModelAndView handleRequest(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+
+        String now = (new Date()).toString();
+        logger.info("Returning hello view with " + now);
+
+        return new ModelAndView("hello", "now", now);
+    }
+
+}
+</pre>
+      </div>
+
+      <p><span class="htex-IMP">Exercice</span>&nbsp;: A ce stade,
+      vous pouvez faire un classe de test unitaire pour vérifier
+      que votre contrôleur est bien correct.</p>
+
+      <h2 id="idhtex-h2-4">Utiliser les annotations</h2>
+
+      <p>Pour l'instant, nous avons fait du MVC Spring <i>à
+      l'ancienne</i> (interface, implantation et fichier de
+      configuration XML). Nous allons revoir ce processus en
+      utilisant les annotations java.</p>
+
+      <p>&#9830;&nbsp;Commencez par ajouter dans le fichier
+      <span class="htex-ttt">WEB-INF/springapp-servlet.xml</span>
+      la clause ci-dessous (avant la création du bean <span class="htex-ttt">/hello.htm</span>). Elle permet d'indiquer à la
+      servlet qu'elle doit explorer les classes (des packages
+      listés) et exploiter les annotations.</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;context:component-scan base-package="springapp.web" /&gt;
+&lt;context:component-scan base-package="springapp.business" /&gt;
+</pre>
+      </div>
+
+      <p>&#9830;&nbsp;Nous allons ensuite enrichier la
+      correspondance URL/Contrôleurs en ajoutant la clause
+      ci-dessous au fichier <span class="htex-ttt">WEBINF/web.xml</span>&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;springapp&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/actions/*&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</pre>
+      </div>
+
+      <p>&#9830;&nbsp;Nous pouvons maintenant définir un nouveau
+      contrôleur&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import java.util.Date;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller()
+@RequestMapping("/tests")
+public class HelloAnnoController {
+
+    protected final Log logger = LogFactory.getLog(getClass());
+
+    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
+    public ModelAndView sayHello() {
+        String now = (new Date()).toString();
+        logger.info("Running " + this);
+        return new ModelAndView("hello", "now", now);
+    }
+
+}
+</pre>
+      </div>
+
+      <p><span class="htex-IMP">Exercices</span>&nbsp;:</p>
+
+      <div class="clist">
+        <ul>
+          <li>Vérifiez dans les traces du serveur que ces
+          contrôleurs sont bien détectés par Spring.</li>
+
+          <li>Testez ce contrôleur avec une URL du type
+
+            <div class="code">
+              <pre xml:space="preserve">http://localhost:8080/votre-application/actions/tests/welcome
+</pre>
+            </div>
+          </li>
+
+          <li>Lisez la documention de l'annotation <span class="htex-ttt">@Controller</span>.</li>
+
+          <li>Un contrôleur est maintenant une méthode qui
+
+            <div class="clist">
+              <ul>
+                <li>renvoie une instance de <span class="htex-ttt">ModelAndView</span> ou le nom d'une vue
+                (<span class="htex-ttt">String</span>),</li>
+
+                <li>accepte en argument une instance de
+                <span class="htex-ttt">HttpServletRequest</span>
+                et/ou <span class="htex-ttt">HttpServletRequest</span> et/ou
+                <span class="htex-ttt">HttpSession</span> et bien
+                d'autres choses.</li>
+              </ul>
+            </div>Créez un nouveau contrôleur qui va stocker un
+            compteur en session, le faire évoluer et assurer son
+            affichage. Faites en sorte que ce contrôleur traite
+            également un argument de la requête HTTP.
+          </li>
+        </ul>
+      </div>
+
+      <h3 id="idhtex-h3-5">Utiliser l'espace de nom MVC</h3>
+
+      <p><b><span style="color:red;">Pour régler les problèmes de
+      traitement des dates et variables Matrix&nbsp;:</span></b>
+      Pour utiliser les annotations introduites pas le module MVC
+      de Spring, nous devons ajouter dans le fichier de
+      configuration un espace de nom (<span class="htex-ttt">mvc</span>) et un nouvel élément&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;beans ...
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="
+        ...
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+        ...
+        "&gt;
+
+    ....
+
+    &lt;!-- Utiliser les annotations liées au module MVC de Spring --&gt;
+    &lt;mvc:annotation-driven enable-matrix-variables="true" /&gt;
+
+    ....
+
+&lt;/beans&gt;
+</pre>
+      </div>
+
+      <h3 id="idhtex-h3-6">Déclarer les paramètres</h3>
+
+      <p>Nous pouvons également utiliser l'annotation <span class="htex-ttt">@RequestParam</span> pour récupérer, sous la forme
+      d'un paramètre de la méthode, les paramètres de la requête
+      HTTP. En voici un exemple&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">@RequestMapping(value = "/plus10", method = RequestMethod.GET)
+public ModelAndView plus10(
+        @RequestParam(value = "num", defaultValue = "100") Integer value) {
+    logger.info("Running plus10 controler with param = " + value);
+    return new ModelAndView("hello", "now", value + 10);
+}
+</pre>
+      </div>
+
+      <p><span class="htex-IMP">Exercices</span>&nbsp;:</p>
+
+      <div class="clist">
+        <ul>
+          <li>Testez ce contrôleur en lui fournissant le paramètre
+          attendu. Testez également les cas d'erreur (paramètre
+          absent ou incorrect).</li>
+
+          <li>Ajoutez un nouveau paramètre de type <span class="htex-ttt">Date</span> et utilisez l'annotation
+          <span class="htex-ttt">@DateTimeFormat</span> pour
+          récupérer ce paramètre.</li>
+        </ul>
+      </div>
+
+      <h3 id="idhtex-h3-7">Utiliser de belles adresses</h3>
+
+      <p>Il est maintenant habituel de placer des paramètres à
+      l'intérieur des adresses WEB. cela permet d'avoir des URL
+      simples, faciles à construire et faciles à mémoriser. En
+      voila un exemple&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">@RequestMapping(value = "/voir/{param}", method = RequestMethod.GET)
+public ModelAndView voir(@PathVariable("param") Integer param) {
+    logger.info("Running param controler with param=" + param);
+    return new ModelAndView("hello", "now", param);
+}
+</pre>
+      </div>
+
+      <p><span class="htex-IMP">Exercices</span>&nbsp;:</p>
+
+      <div class="clist">
+        <ul>
+          <li>Testez ce contrôleur.</li>
+
+          <li>Modifiez ce contrôleur pour avoir plusieurs
+          paramètres dans la même adresse.</li>
+
+          <li>Utilisez le mécanisme des expressions régulières pour
+          traiter une adresse composée (inspirez de la documention
+          sur l'annotation <span class="htex-ttt">@PathVariable</span>).</li>
+
+          <li>Terminez en testant l'annotation <span class="htex-ttt">@MatrixVariable</span> pour traiter des URL de
+          la forme (<span class="htex-ttt">a</span> et
+            <span class="htex-ttt">b</span> ne sont pas des
+            paramètres)&nbsp;:
+
+            <div class="code">
+              <pre xml:space="preserve">/une/action;a=10;b=20
+</pre>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <h2 id="idhtex-h2-5">Le traitement des formulaires</h2>
+
+      <p>Pour introduire la traitement des formulaires nous allons
+      procéder en trois étapes&nbsp;:</p>
+
+      <div class="clist">
+        <ul>
+          <li>définition d'un modèle et d'une couche métier,</li>
+
+          <li>création du formulaire,</li>
+
+          <li>validation des données,</li>
+        </ul>
+      </div>
+
+      <h3 id="idhtex-h3-8">Définir une couche métier</h3>
+
+      <p>Considérons le POJO (<i>Plain Old java Object</i>)
+      suivant&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.model;
+
+public class Product {
+
+    private Integer number;
+    private String name;
+    private Double price;
+    private String description;
+    private String type;
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+}
+</pre>
+      </div>
+
+      <p>Nous allons lui adjoindre un service métier défini par
+      l'interface ci-dessous&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.business;
+
+import java.util.Collection;
+
+import springapp.model.Product;
+
+public interface ProductManager {
+
+    Collection&lt;Product&gt; findAll();
+
+    void save(Product p);
+
+    Product find(int number);
+
+}
+</pre>
+      </div>
+
+      <p>pour laquelle nous définissons une première
+      implantation&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.business;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+
+import springapp.model.Product;
+
+@Service("productManager")
+public class InMemoryProductManager implements ProductManager {
+
+    final Map&lt;Integer, Product&gt; products;
+    int maxId = 0;
+
+    public InMemoryProductManager() {
+        this.products = new HashMap&lt;Integer, Product&gt;();
+        Product p1 = new Product();
+        p1.setNumber(100);
+        p1.setName("Car");
+        p1.setPrice(2000.0);
+        p1.setDescription("Small car");
+        products.put(p1.getNumber(), p1);
+        Product p2 = new Product();
+        p2.setNumber(200);
+        p2.setName("Gift");
+        p2.setPrice(100.0);
+        p2.setDescription("Big gift");
+        products.put(p2.getNumber(), p2);
+        maxId = 300;
+    }
+
+    @Override
+    public Collection&lt;Product&gt; findAll() {
+        return products.values();
+    }
+
+    @Override
+    public void save(Product p) {
+        if (p.getNumber() == null) {
+            p.setNumber(maxId++);
+        }
+        products.put(p.getNumber(), p);
+    }
+
+    @Override
+    public Product find(int number) {
+        Product p = products.get(number);
+        if (p == null) {
+            throw new IllegalArgumentException("no product " + number);
+        }
+        return p;
+    }
+}
+</pre>
+      </div>
+
+      <h3 id="idhtex-h3-9">Lister les produits</h3>
+
+      <p>Nous pouvons maintenant mettre en place un contrôleur qui
+      va gérer toutes les actions sur les produits (listage,
+      création, modification et suppression).</p>
+
+      <p>Commençons par lister les produits disponibles&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import springapp.business.ProductManager;
+import springapp.model.Product;
+
+@Controller()
+@RequestMapping("/product")
+public class ProductController {
+
+    @Autowired
+    ProductManager manager;
+
+    protected final Log logger = LogFactory.getLog(getClass());
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public ModelAndView listProducts() {
+        logger.info("List of products");
+        Collection&lt;Product&gt; products = manager.findAll();
+        return new ModelAndView("productsList", "products", products);
+    }
+
+}
+</pre>
+      </div>
+
+      <p>Ce contrôleur est accompagné de la vue <span class="htex-ttt">productsList.jsp</span>&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;%@ include file="/WEB-INF/jsp/include.jsp"%&gt;
+
+&lt;c:url var="edit" value="/actions/product/edit" /&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Hello :: Spring Application&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Products&lt;/h1&gt;
+    &lt;table border='1'&gt;
+    &lt;c:forEach items="${products}" var="prod"&gt;
+        &lt;tr&gt;
+        &lt;td&gt;&lt;a href="${edit}?id=${prod.number}"&gt;
+            &lt;c:out value="${prod.name}" /&gt;&lt;/a&gt;
+        &lt;/td&gt;
+        &lt;td&gt;&lt;i&gt;$&lt;c:out value="${prod.price}" /&gt;&lt;/i&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/c:forEach&gt;
+    &lt;/table&gt;
+    &lt;p&gt;&lt;a href="${edit}"&gt;Create new product&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </div>
+
+      <p>Cette vue va construire la liste des produits, avec pour
+      chacun une possibilité d'édition. Bien entendu, pour
+      l'instant, la phase d'édition ne fonctionne pas.</p>
+
+      <p><span class="htex-IMP">Note</span>&nbsp;: Dans cet
+      exemple, le contrôleur ne fait rien d'autre que de construire
+      des données (la liste des produits) pour les envoyer à la
+      vue. La création des données peut être découplée des
+      contrôleurs et placée dans des méthodes annotées par
+      <span class="htex-ttt">@ModelAttribute</span>. Ces méthodes
+      sont systématiquement exécutées avant les contrôleurs pour
+      remplir le modèle.</p>
+
+      <p>Dans notre exemple, la création de la liste des produits
+      (nommée <span class="htex-ttt">products</span>) peut se faire
+      par la méthode&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">@ModelAttribute("products")
+Collection&lt;Product&gt; products() {
+    logger.info("Making list of products");
+    return manager.findAll();
+}
+</pre>
+      </div>
+
+      <p>Le contrôleur devient&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">@RequestMapping(value = "/list", method = RequestMethod.GET)
+public String listProducts2() {
+    logger.info("List of products");
+    return "productsList";
+}
+</pre>
+      </div>
+
+      <p>La vue va simplement puiser dans le modèle qui est rempli
+      par la méthode <span class="htex-ttt">products</span>.</p>
+
+      <h3 id="idhtex-h3-10">Éditer un produit</h3>
+
+      <p>Définissons maintenant le contrôleur d'accès au formulaire
+      d'édition&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">@RequestMapping(value = "/edit", method = RequestMethod.GET)
+public String editProduct(@ModelAttribute Product p) {
+    return "productForm";
+}
+</pre>
+      </div>
+
+      <p>accompagné du formulaire <span class="htex-ttt">productForm.jsp</span>&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;%@ include file="/WEB-INF/jsp/include.jsp"%&gt;
+&lt;%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+.error {
+    color: #ff0000;
+}
+.errorblock{
+    color: #000;
+    background-color: #ffEEEE;
+    border: 3px solid #ff0000;
+    padding:8px;
+    margin:16px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h1&gt;Edit Product&lt;/h1&gt;
+
+&lt;form:form method="POST" commandName="product"&gt;
+    &lt;form:errors path="*" cssClass="errorblock" element="div"/&gt;
+    &lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Name : &lt;/td&gt;
+        &lt;td&gt;&lt;form:input path="name" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;form:errors path="name" cssClass="error" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Description : &lt;/td&gt;
+        &lt;td&gt;&lt;form:textarea path="description" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;form:errors path="description" cssClass="error" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;price : &lt;/td&gt;
+        &lt;td&gt;&lt;form:input path="price" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;form:errors path="price" cssClass="error" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td colspan="3"&gt;&lt;input type="submit" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/form:form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </div>
+
+      <p>Cette vue utilise les balises personnalisées de Spring
+      pour gérer facilement la récupération des données du modèle
+      (attribut <span class="htex-ttt">commandName</span> de la
+      balise <span class="htex-ttt">form</span>) et la mise en
+      place des champs (balises <span class="htex-ttt">form:input</span>, <span class="htex-ttt">form:select</span>, etc...). Vous trouverez plus
+      d'information sur ces balises dans <a target="_blank" href="http://docs.spring.io/spring/docs/4.3.2.RELEASE/spring-framework-reference/html/view.html#view-jsp-formtaglib" shape="rect">cette documentation</a>.</p>
+
+      <p>Pour l'instant, ce formulaire ne permet pas d'éditer des
+      produits déjà existants. Pour ce faire, nous allons ajouter
+      une méthode annotée <span class="htex-ttt">@ModelAttribute</span> qui va préparer l'instance
+      du produit à éditer en fonction du paramètre de la requête
+      HTTP&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">@ModelAttribute
+public Product newProduct(
+        @RequestParam(value = "id", required = false) Integer productNumber) {
+    if (productNumber != null) {
+        logger.info("find product " + productNumber);
+        return manager.find(productNumber);
+    }
+    Product p = new Product();
+    p.setNumber(null);
+    p.setName("");
+    p.setPrice(0.0);
+    p.setDescription("");
+    logger.info("new product = " + p);
+    return p;
+}
+</pre>
+      </div>
+
+      <p>En clair&nbsp;: si la requête <span class="htex-ttt">/edit</span> est accompagnée d'un numéro de
+      produit (paramètre <span class="htex-ttt">id</span>
+      optionnel), le produit sera chargé à partir du manager. Dans
+      le cas contraire, un nouveau produit sera renvoyé. Testez ce
+      fonctionnement.</p>
+
+      <p>Il nous reste maintenant à mettre en place le contrôleur
+      de soumission du formulaire&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">@RequestMapping(value = "/edit", method = RequestMethod.POST)
+public String saveProduct(@ModelAttribute Product p, BindingResult result) {
+    if (result.hasErrors()) {
+        return "productForm";
+    }
+    manager.save(p);
+    return "productsList";
+}
+</pre>
+      </div>
+
+      <p>A cette étape, la seule erreur possible provient d'une
+      erreur de conversion sur le prix. Essayez de donner un prix
+      incorrect afin de tester ce fonctionnement.</p>
+
+      <p><span class="htex-IMP">Avertissement</span>&nbsp;: A ce
+      stade, la création d'un nouveau produit (après la soumission)
+      se termine sur l'affichage de la liste des produits (dernière
+      ligne du contrôleur ci-dessus). Ce comportement pose un
+      problème&nbsp;: Si le client tente un rechargement de la
+      page, cela va provoquer une nouvelle soumission et la
+      création d'un nouveau produit&nbsp;!</p>
+
+      <p>Pour régler ce problème, nous allons renvoyer non pas sur
+      la vue <span class="htex-ttt">productsList</span>, mais sur
+      l'action permettant d'avoir la liste des produits&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">@RequestMapping(value = "/edit", method = RequestMethod.POST)
+public String saveProduct(@ModelAttribute Product p, BindingResult result) {
+    if (result.hasErrors()) {
+        return "productForm";
+    }
+    manager.save(p);
+    return "redirect:list";
+}
+</pre>
+      </div>
+
+      <h3 id="idhtex-h3-11">Introduire des données dans un
+      formulaire</h3>
+
+      <p>Pour construire un formulaire complexe, nous avons souvent
+      besoin d'utiliser des données annexes (liste de références,
+      nom d'utilisateur, etc.). Pour ce faire, nous allons de
+      nouveau utiliser l'annotation <span class="htex-ttt">@ModelAttribute</span>. Mettez en place la méthode
+      suivante&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">@ModelAttribute("productTypes")
+public Map&lt;String, String&gt; productTypes() {
+    Map&lt;String, String&gt; types = new LinkedHashMap&lt;&gt;();
+    types.put("type1", "Type 1");
+    types.put("type2", "Type 2");
+    types.put("type3", "Type 3");
+    types.put("type4", "Type 4");
+    types.put("type5", "Type 5");
+    return types;
+}
+</pre>
+      </div>
+
+      <p>Elle fabrique et injecte dans le modèle une table de
+      correspondance qui va nous être utile pour ajouter le champ
+      de typage dans le formulaire. Modifiez notre formulaire en
+      ajoutant&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;tr&gt;
+    &lt;td&gt;Type : &lt;/td&gt;
+    &lt;td&gt;
+        &lt;form:select path="type" multiple="false"&gt;
+            &lt;form:option value="" label="--- Select ---" /&gt;
+            &lt;form:options items="${productTypes}" /&gt;
+        &lt;/form:select&gt;
+    &lt;/td&gt;
+    &lt;td&gt;&lt;form:errors path="type" cssClass="error" /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+</pre>
+      </div>
+
+      <p>Nous pouvons maintenant associer un type à chaque
+      produit.</p>
+
+      <h3 id="idhtex-h3-12">Valider les données</h3>
+
+      <p>Il manque maintenant la phase de validation des données du
+      formulaire. Pour ce faire, nous allons développer une classe
+      de validation adaptée au produit&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import org.springframework.stereotype.Service;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
+
+import springapp.model.Product;
+import springapp.model.ProductCode;
+
+@Service
+public class ProductValidator implements Validator {
+
+    @Override
+    public boolean supports(Class&lt;?&gt; clazz) {
+        return Product.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Product product = (Product) target;
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name",
+                "product.name", "Field name is required.");
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description",
+                "product.description", "Field description is required.");
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "type",
+                "product.type", "Field type is required.");
+
+        if (!(product.getPrice() &gt; 0.0)) {
+            errors.rejectValue("price", "product.price.too.low",
+                    "Price too low");
+        }
+    }
+
+}
+</pre>
+      </div>
+
+      <p>Pour l'utiliser, il suffit de modifier le contrôleur comme
+      suit&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">@Autowired
+ProductValidator validator;
+
+@RequestMapping(value = "/edit", method = RequestMethod.POST)
+public String saveProduct(@ModelAttribute Product p, BindingResult result) {
+    validator.validate(p, result);
+    if (result.hasErrors()) {
+        return "productForm";
+    }
+    manager.save(p);
+    return "productsList";
+}
+</pre>
+      </div>
+
+      <h3 id="idhtex-h3-13">Traduire les messages de
+      validation</h3>
+
+      <p>Pour l'instant les messages d'erreurs sont affichés en
+      anglais. Nous pouvons les traduire automatiquement en
+      délocalisant ces messages dans des fichiers de
+      ressources.</p>
+
+      <p>Commencez par créer dans le répertoire contenant les
+      sources du paquetage <span class="htex-ttt">springapp.web</span> le fichier <span class="htex-ttt">product.properties</span>&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">product.name = Name is required!
+product.description = Description is required!
+product.type = Type is required!
+product.price.too.low = Price is too low!
+</pre>
+      </div>
+
+      <p>puis le fichier <span class="htex-ttt">product_fr_FR.properties</span>&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">product.name = Le nom est requis
+product.price.too.low = Le prix est trop bas !
+</pre>
+      </div>
+
+      <p>Tous les messages sont donnés en anglais. Certains sont en
+      français.</p>
+
+      <p>Pour exploiter ces ressources, nous allons les charger en
+      ajoutant dans le fichier <span class="htex-ttt">WEB-INF/springapp-servlet.xml</span> la création
+      d'un nouveau service&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;bean id="messageSource"
+    class="org.springframework.context.support.ResourceBundleMessageSource"&gt;
+    &lt;property name="basenames"&gt;
+        &lt;list&gt;
+            &lt;value&gt;/springapp/web/product&lt;/value&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</pre>
+      </div>
+
+      <p>Nous pouvons simplifier notre classe de validation en
+      supprimant les messages. Elle devient&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import org.springframework.stereotype.Service;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
+
+import springapp.model.Product;
+import springapp.model.ProductCode;
+
+@Service
+public class ProductValidator implements Validator {
+
+    @Override
+    public boolean supports(Class&lt;?&gt; clazz) {
+        return Product.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Product product = (Product) target;
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name",
+                "product.name");
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description",
+                "product.description");
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "type",
+                "product.type");
+
+        if (!(product.getPrice() &gt; 0.0)) {
+            errors.rejectValue("price", "product.price.too.low");
+        }
+    }
+
+}
+</pre>
+      </div>
+
+      <p><span class="htex-IMP">À faire</span>&nbsp;: Suivez ce
+      tutoriel pour <a target="_blank" href="https://www.mkyong.com/spring-mvc/spring-mvc-internationalization-example/" shape="rect">changer la langue sur la demande de
+      l'utilisateur</a>.</p>
+
+      <h3 id="idhtex-h3-14">Traiter des champs complexes</h3>
+
+      <p>Nous venons de le voir, Spring MVC traite parfaitement les
+      champs qui correspondent à un type de base (entier, flottant,
+      chaîne, etc.). Nous allons maintenant nous occuper des champs
+      complexes.</p>
+
+      <p>Commençons par définir une classe pour représenter le
+      numéro de série d'un produit (une lettre suivie d'un entier
+      entre 1000 et 9999)&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.model;
+
+public class ProductCode {
+
+    String base;
+    int number;
+
+    public String getBase() {
+        return base;
+    }
+
+    public void setBase(String base) {
+        this.base = base;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public ProductCode() {
+        super();
+    }
+
+    public ProductCode(String base, int number) {
+        super();
+        this.base = base;
+        this.number = number;
+    }
+
+}
+</pre>
+      </div>
+
+      <p>et ajoutons ce code à notre produit&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.model;
+
+public class Product {
+
+    ...
+    
+    private ProductCode code;
+
+    ...
+
+    public ProductCode getCode() {
+        return code;
+    }
+
+    public void setCode(ProductCode code) {
+        this.code = code;
+    }
+
+}
+</pre>
+      </div>
+
+      <p>Faites ensuite les modifications suivantes&nbsp;:</p>
+
+      <div class="clist">
+        <ul>
+          <li>dans <span class="htex-ttt">InMemoryProductManager</span> associez le code
+          <span class="htex-ttt">A1000</span> au premier produit et
+          <span class="htex-ttt">B2000</span> au deuxième.</li>
+
+          <li>ajoutez le code suivant à votre formulaire&nbsp;:
+
+            <div class="code">
+              <pre xml:space="preserve">&lt;tr&gt;
+    &lt;td&gt;Code : &lt;/td&gt;
+    &lt;td&gt;
+        &lt;form:input path="code.base" /&gt;
+        &lt;form:input path="code.number" /&gt;
+    &lt;/td&gt;
+    &lt;td&gt;&lt;form:errors path="code" cssClass="error" /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+</pre>
+            </div>
+          </li>
+
+          <li>Modifiez le validateur en conséquence en
+          ajoutant&nbsp;
+
+            <div class="code">
+              <pre xml:space="preserve">ProductCode code = product.getCode();
+if (code != null) {
+    if (!code.getBase().matches("[A-Z]")) {
+        errors.rejectValue("code", "product.code.base");
+    }
+    if (!(code.getNumber() &gt;= 1000 &amp;&amp; code.getNumber() &lt;= 9999)) {
+        errors.rejectValue("code", "product.code.number");
+    }
+}
+</pre>
+            </div>
+          </li>
+
+          <li>Ajoutez des messages d'erreurs pour <span class="htex-ttt">product.code.base</span> et <span class="htex-ttt">product.code.number</span>.</li>
+        </ul>
+      </div>
+
+      <p>Vous devez maintenant être capable d'éditer les deux
+      parties du numéro de série.</p>
+
+      <p><span class="htex-IMP">Une autre solution</span> consiste
+      à fournir une classe d'adaptation (un éditeur dans la
+      terminologie des JavaBeans) qui est capable de transformer un
+      code en chaîne et vice-versa. En voici un exemple&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import java.beans.PropertyEditorSupport;
+
+import springapp.model.ProductCode;
+
+class ProductCodeEditor extends PropertyEditorSupport {
+
+    @Override
+    public String getAsText() {
+        Object o = this.getValue();
+        if (o instanceof ProductCode) {
+            ProductCode c = (ProductCode) o;
+            return c.getBase() + "" + c.getNumber();
+        }
+        return super.getAsText();
+    }
+
+    @Override
+    public void setAsText(String text) throws IllegalArgumentException {
+        try {
+            String base = text.substring(0, 1);
+            int number = Integer.parseInt(text.substring(1));
+            ProductCode c = new ProductCode(base, number);
+            super.setValue(c);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Bad code format");
+        }
+    }
+
+}
+</pre>
+      </div>
+
+      <p>Il suffit maintenant d'indiquer au contrôleur que nous
+      disposons de cette classe. Pour ce faire nous allons lui
+      adjoindre une méthode annotée par <span class="htex-ttt">InitBinder</span>&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">@InitBinder
+public void initBinder(WebDataBinder b) {
+    b.registerCustomEditor(ProductCode.class, new ProductCodeEditor());
+}
+</pre>
+      </div>
+
+      <p>Le formulaire peut devenir&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;tr&gt;
+    &lt;td&gt;Code : &lt;/td&gt;
+    &lt;td&gt;
+        &lt;form:input path="code" /&gt;
+    &lt;/td&gt;
+    &lt;td&gt;&lt;form:errors path="code" cssClass="error" /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+</pre>
+      </div>
+
+      <p>Testez le bon fonctionnement de cette nouvelle
+      version.</p>
+
+      <h2 id="idhtex-h2-6">Validation des JavaBean dans JEE
+      6/7</h2>
+
+      <p>Une nouvelle spécification (JSR303) nous permet d'exprimer
+      les contraintes sur les propriétés par des annotations (plus
+      d'information dans la <a target="_blank" href="http://docs.oracle.com/javaee/6/tutorial/doc/gircz.html" shape="rect">documentation JEE 6</a> et dans la <a target="_blank" href="http://docs.oracle.com/javaee/6/api/javax/validation/constraints/package-summary.html" shape="rect">JavaDoc</a>).</p>
+
+      <h3 id="idhtex-h3-15">Mise en oeuvre</h3>
+
+      <p>Commençons par ajouter la dépendance pour <a target="_blank" href="https://mvnrepository.com/artifact/org.hibernate/hibernate-validator" shape="rect">l'implantation d'Hibernate</a> de la
+      spécification JSR&nbsp;303.</p>
+
+      <p>Continuons en utilisant les annotations dans nos
+      POJOs&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.model;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+public class Product {
+
+    private Integer number;
+
+    @NotNull
+    @Size(min = 1, message = "Le nom est obligatoire")
+    private String name;
+
+    @NotNull
+    @Min(value = 1, message = "Le prix est trop bas")
+    private Double price;
+
+    @NotNull(message = "La description est obligatoire")
+    @Size(min = 1, max = 100, message = "Entre 1 et 200 caractères")
+    private String description;
+
+    @NotNull()
+    @Size(min=1,message="Le type doit être renseigné")
+    private String type;
+
+    @Valid
+    private ProductCode code;
+
+    ... getters and setters
+
+}
+</pre>
+      </div>
+
+      <p>et</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.model;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+public class ProductCode {
+
+    @NotNull
+    @Size(min = 1, max = 1)
+    @Pattern(regexp="[A-Z]", message="Le code doit débuter par une majuscule")
+    String base;
+    
+    @Min(value=1000, message="Le numéro doit être &gt;= à 1000")
+    @Max(value=9999, message="Le numéro doit être &lt;= à 9999")
+    int number;
+
+    ... getters and setters
+
+}
+</pre>
+      </div>
+
+      <p>Nous allons indiquer à Spring que nous utilisons la
+      validation par l'utilisation des annotations (fichier
+      <span class="htex-ttt">WEB-INF/springapp-servlet.xml</span>)&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd"&gt;
+
+    ....
+
+    &lt;!-- support JSR303 annotation --&gt;
+    &lt;mvc:annotation-driven enable-matrix-variables="true" /&gt;
+
+    ....
+
+&lt;/beans&gt;
+</pre>
+      </div>
+
+      <p>puis nous devons ajouter l'annotation <span class="htex-ttt">@Valid</span> dans le contrôleur&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">...
+
+@RequestMapping(value = "/edit", method = RequestMethod.POST)
+public String saveProduct(@ModelAttribute @Valid Product p, BindingResult result) {
+    validator.validate(p, result);
+    if (result.hasErrors()) {
+        return "productForm";
+    }
+    manager.save(p);
+    return "productsList";
+}
+
+...
+</pre>
+      </div>
+
+      <p>Testez le résultat. Vous devez vous retrouver avec les
+      messages en provenance du validateur plus les nouveaux
+      messages en provenance des annotations. Vous pouvez
+      maintenant vider votre validateur manuel. La classe de
+      validation reste <span class="htex-IMP">utile</span> pour les
+      <span class="htex-IMP">validations métier</span>.</p>
+
+      <h3 id="idhtex-h3-16">Créer ses propres contraintes</h3>
+
+      <p>Le mécanisme de validation peut facilement être étendu pas
+      ajout de contraintes spécifiques. Nous allons créer une
+      contrainte <span class="htex-ttt">Bye</span> qui va vérifier
+      la présence de ce mot dans un champ. Pour ce faire, commencez
+      par créez l'annotation <span class="htex-ttt">Bye</span>&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import javax.validation.Constraint;
+import javax.validation.Payload;
+
+@Target({ ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE })
+@Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = ByeConstraintValidator.class)
+@Documented
+public @interface Bye {
+
+    String message() default "Il manque le 'bye'";
+
+    Class&lt;?&gt;[] groups() default {};
+
+    Class&lt;? extends Payload&gt;[] payload() default {};
+
+}
+</pre>
+      </div>
+
+      <p>Puis continuez en créant la classe de validation
+      <span class="htex-ttt">ByeConstraintValidator</span>&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+public class ByeConstraintValidator implements ConstraintValidator&lt;Bye, String&gt; {
+
+    @Override
+    public void initialize(Bye arg0) {
+    }
+
+    @Override
+    public boolean isValid(String arg0, ConstraintValidatorContext arg1) {
+        if (arg0.contains("bye"))
+            return true;
+        return false;
+    }
+
+}
+</pre>
+      </div>
+
+      <p>Modifez ensuite la classe <span class="htex-ttt">Product</span> pour utiliser cette
+      annotation&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">public class Product {
+
+    ...
+
+    @NotNull(message = "La description est obligatoire")
+    @Size(min = 1, max = 100, message = "Entre 1 et 200 caractères")
+    @Bye
+    private String description;
+
+    ...
+
+}
+</pre>
+      </div>
+
+      <p>Vérifiez son bon fonctionnement&nbsp;!</p>
+
+      <h2 id="idhtex-h2-7">Utiliser des données en session</h2>
+
+      <p>Il est facile de récupérer des données placées en session,
+      mais Spring nous offre le moyen d'injecter directement dans
+      nos contrôleurs des données de portée session.</p>
+
+      <p><span class="htex-IMP">Étape 1</span>&nbsp;: définissez un
+      nouveau bean pour représenter l'utilisateur
+      courant&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import java.io.Serializable;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
+
+@Component()
+@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+}
+</pre>
+      </div>
+
+      <p>L'annotation <span class="htex-ttt">Component</span>
+      indique que c'est un composant géré par Spring. L'annotation
+      <span class="htex-ttt">Scope</span> donne la portée des
+      instances (une par session). La clause <span class="htex-ttt">ProxyMode</span> permet d'indiquer que ce n'est
+      pas directement une instance qui doit être injectée, mais un
+      proxy qui va sélectionner la bonne instance (dans la bonne
+      session) en fonction du contexte.</p>
+
+      <p><span class="htex-IMP">Étape 2</span>&nbsp;: définissez un
+      contrôleur qui utilise l'injection du bean <span class="htex-ttt">User</span>&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller()
+@RequestMapping("/user")
+public class UserController {
+
+    protected final Log logger = LogFactory.getLog(getClass());
+
+    @Autowired()
+    User user;
+
+    @ModelAttribute("user")
+    public User newUser() {
+        return user;
+    }
+
+    @RequestMapping(value = "/show")
+    public String show() {
+        logger.info("show user " + user);
+        return "user";
+    }
+
+    @RequestMapping(value = "/login")
+    public String login() {
+        logger.info("login user " + user);
+        user.setName("It's me");
+        return "user";
+    }
+
+    @RequestMapping(value = "/logout")
+    public String logout() {
+        logger.info("logout user " + user);
+        user.setName("Anonymous");
+        return "user";
+    }
+}
+</pre>
+      </div>
+
+      <p><span class="htex-IMP">Étape 3</span>&nbsp;: La
+      vue&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;%@ include file="/WEB-INF/jsp/include.jsp"%&gt;
+
+&lt;c:url var="login"  value="/actions/user/login" /&gt;
+&lt;c:url var="logout" value="/actions/user/logout" /&gt;
+&lt;c:url var="show"   value="/actions/user/show" /&gt;
+
+&lt;html&gt;
+&lt;body&gt;
+    &lt;h1&gt;User&lt;/h1&gt;
+
+    &lt;p&gt;
+    name : &lt;c:out value="${user.name}" default="no name"/&gt; | 
+    &lt;a href="${show}"&gt;Show&lt;/a&gt; | &lt;a href="${login}"&gt;Login&lt;/a&gt; |
+    &lt;a href="${logout}"&gt;Logout&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </div>
+
+      <p><span class="htex-IMP">Moralité</span>&nbsp;: Le
+      contrôleur (qui est un singleton exécuté par plusieurs
+      <span class="htex-ttt">threads</span>) utilise le
+      <span class="htex-ttt">proxy</span> pour sélectionner
+      <span class="htex-IMP">automatiquement</span> l'instance du
+      bean <span class="htex-ttt">User</span> qui correspond à la
+      requête courante et à la session courante.</p>
+
+      <p>La liaison se fait par le <span class="htex-ttt">thread</span>. C'est le même <span class="htex-ttt">thread</span> qui traite toute la requête
+      (<span class="htex-ttt">Dispatcher</span>, contrôleur, vue).
+      Le <span class="htex-ttt">thread</span> courant est donc
+      utilisé comme une sorte de variable globale qui permet de
+      faire des liaisons implicites.</p>
+
+      <h2 id="jdbc">Utiliser JDBC</h2>
+
+      <p>Nous allons maintenant étudier comment mettre en place une
+      couche métier basée sur <span class="htex-ttt">JDBC</span>.</p>
+
+      <h3 id="idhtex-h3-17">Inclure le driver JDBC et le module
+      Spring</h3>
+
+      <p>&#9830;&nbsp;Ajoutez à votre fichier <span class="htex-ttt">pom.xml</span> le pilote JDBC pour MySQL
+      <a target="_blank" href="https://mvnrepository.com/artifact/mysql/mysql-connector-java" shape="rect">MySQL Connector/J</a>.</p>
+
+      <p>&#9830;&nbsp;Ajoutez à votre fichier <span class="htex-ttt">pom.xml</span> le module <a target="_blank" href="https://mvnrepository.com/artifact/org.springframework/spring-jdbc" shape="rect">Spring JDBC</a>.</p>
+
+      <h3 id="idhtex-h3-18">Définition du JavaBean</h3>
+
+      <p>Prenons un JavaBean pour représenter un message&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.business;
+
+public class Message {
+
+    Integer number;
+
+    String text;
+
+    public Message() {
+        super();
+    }
+
+    public Message(String text) {
+        super();
+        this.text = text;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+}
+</pre>
+      </div>
+
+      <p>et un service Spring en commençant par la
+      spécification&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.business;
+
+import java.util.Collection;
+
+public interface IMessageManager {
+
+    void add(String message);
+
+    int removeAll();
+
+    Collection&lt;Message&gt; findAll();
+
+}
+</pre>
+      </div>
+
+      <p>puis en continuant par l'implantation&nbsp;</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.business;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Collection;
+
+import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Service;
+
+@Service
+public class JdbcMessageManager implements IMessageManager {
+
+    private JdbcTemplate jdbcTemplate;
+
+    protected final Log logger = LogFactory.getLog(getClass());
+
+    @PostConstruct
+    public void init() {
+        logger.info("Create Table");
+        jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS WA_MESSAGE(" + //
+                "number INT AUTO_INCREMENT PRIMARY KEY," + //
+                "text   VARCHAR(500)" + //
+                ")");
+
+    }
+
+    @Autowired
+    public void setDataSource(DataSource dataSource) {
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
+    }
+
+    final private RowMapper&lt;Message&gt; messageMapper = new RowMapper&lt;Message&gt;() {
+
+        @Override
+        public Message mapRow(ResultSet arg0, int arg1) throws SQLException {
+            Message m = new Message();
+            m.setNumber(arg0.getInt("number"));
+            m.setText(arg0.getString("text"));
+            return m;
+        }
+
+    };
+
+    @Override
+    public Collection&lt;Message&gt; findAll() {
+        return this.jdbcTemplate.query("SELECT * FROM WA_MESSAGE", messageMapper);
+    }
+
+    @Override
+    public void add(String data) {
+        this.jdbcTemplate.update("INSERT INTO WA_MESSAGE (text) VALUES (?)", data);
+    }
+
+    @Override
+    public int removeAll() {
+        return this.jdbcTemplate.update("DELETE FROM WA_MESSAGE");
+    }
+
+}
+</pre>
+      </div>
+
+      <h3 id="idhtex-h3-19">Configurer Spring</h3>
+
+      <p>Vous pouvez noter que nous utilisons l'injection de
+      dépendances pour demander à Spring de préparer et d'injecter
+      une instance d'un <span class="htex-ttt">DataSource</span>.
+      Vous devez donc ajouter la déclaration suivante&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;bean id="dataSource"
+    class="org.springframework.jdbc.datasource.DriverManagerDataSource"&gt;
+    &lt;property name="driverClassName" value="com.mysql.jdbc.Driver" /&gt;
+    &lt;property name="url"      value="votre-URL" /&gt;
+    &lt;property name="username" value="votre-login" /&gt;
+    &lt;property name="password" value="votre-password" /&gt;
+&lt;/bean&gt;
+</pre>
+      </div>
+
+      <p><span class="htex-IMP">A faire</span>&nbsp;: explorer la
+      JavaDoc de la classe <span class="htex-ttt">JdbcTemplate</span> (elle est très riche). Vous
+      pouvez egalement lire la documentation du module <a target="doctab" href="http://docs.spring.io/spring/docs/4.3.3.RELEASE/spring-framework-reference/html/jdbc.html" shape="rect">JDBC de Spring</a>.</p>
+
+      <h3 id="web-jdbc">La partie WEB</h3>
+
+      <p>Commençons par le contrôleur&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">package springapp.web;
+
+import java.util.Collection;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import springapp.business.IMessageManager;
+import springapp.business.Message;
+
+@Controller()
+@RequestMapping("/message")
+public class MessageController {
+
+    @Autowired
+    IMessageManager messageManger;
+
+    protected final Log logger = LogFactory.getLog(getClass());
+
+    @RequestMapping(value = "/add")
+    public ModelAndView add(@RequestParam(required = true) String text) {
+        messageManger.add(text);
+        return new ModelAndView("message", "messages", messages());
+    }
+
+    @RequestMapping(value = "/removeAll")
+    public ModelAndView removeAll() {
+        int n = messageManger.removeAll();
+        logger.info(n + " deleted message(s)");
+        return new ModelAndView("message", "messages", messages());
+    }
+
+    @RequestMapping(value = "/list")
+    public String list() {
+        return "message";
+    }
+
+    @ModelAttribute("messages")
+    public Collection&lt;Message&gt; messages() {
+        return messageManger.findAll();
+    }
+}
+</pre>
+      </div>
+
+      <p>et terminons par la vue&nbsp;:</p>
+
+      <div class="code">
+        <pre xml:space="preserve">&lt;%@ include file="/WEB-INF/jsp/include.jsp"%&gt;
+
+&lt;c:url var="add"    value="/actions/message/add" /&gt;
+&lt;c:url var="remove" value="/actions/message/removeAll" /&gt;
+&lt;c:url var="list"   value="/actions/message/list" /&gt;
+
+&lt;html&gt;
+&lt;body&gt;
+    &lt;h1&gt;Messages&lt;/h1&gt;
+
+    &lt;form action="${add}" method="POST"&gt;
+    &lt;p&gt;
+        &lt;input name="text" size="10"/&gt;
+        &lt;input type="submit" value="Add"/&gt; | 
+        &lt;a href="${list}"&gt;List&lt;/a&gt; |
+        &lt;a href="${remove}"&gt;Remove All&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;/form&gt;
+
+    &lt;ul&gt;
+        &lt;c:forEach items="${messages}" var="m"&gt;
+            &lt;li&gt;${m.number} : ${m.text}&lt;/li&gt;
+        &lt;/c:forEach&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </div>
+
+      <p>Testez le bon fonctionement de votre application.</p>
+
+      <h2 id="idhtex-h2-9">C'est fini</h2>
+
+      <p>À bientôt.</p>
+    </div>
+  </div>
+
+
+</body></html>

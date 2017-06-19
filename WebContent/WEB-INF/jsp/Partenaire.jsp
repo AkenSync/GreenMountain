@@ -52,7 +52,7 @@
 						<div class="col-sm-2">
 							<form:input path="id" class="form-control" value="${id}" />
 						</div>
-						<form:label path="typePartenaire" class="col-sm-1 control-label">Type Partenaire</form:label>
+						<form:label path="idTypePartenaire" class="col-sm-1 control-label">Type Partenaire</form:label>
 						<div class="col-sm-2">
 							<form:select path="idTypePartenaire" class="form-control m-bot15">
 								<form:option value="0" label="Select" />
