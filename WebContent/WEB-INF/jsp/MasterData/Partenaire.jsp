@@ -52,7 +52,7 @@
 						<div class="col-sm-2">
 							<form:input path="id" class="form-control" value="${id}" />
 						</div>
-						<form:label path="typePartenaire" class="col-sm-1 control-label">Type Partenaire</form:label>
+						<form:label path="idTypePartenaire" class="col-sm-1 control-label">Type Partenaire</form:label>
 						<div class="col-sm-2">
 							<form:select path="idTypePartenaire" class="form-control m-bot15">
 								<form:option value="0" label="Select" />
@@ -70,7 +70,7 @@
 						<label class="col-sm-2 control-label"></label>
 						<div class="col-sm-10">
 							<input type="submit" class="btn btn-default" value="Creer" />
-							<button type="submit" class="btn btn-default">Rechercher</button>
+							<button type="button" onclick="ouvrirModal()" class="btn btn-default">Rechercher</button>
 							<button type="submit" class="btn btn-default" disabled="disabled">Modifier</button>
 							<button type="submit" class="btn btn-default" disabled="disabled">Supprimer</button>
 						</div>
@@ -89,6 +89,22 @@
 			</section>
 		</div>
 	</div>
+	<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Résultat recherche</h4>
+        </div>
+        <div class="modal-body" id="modal-core">
+        	
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 	</section> 
 	</section> 
 	<!--main content end--> 
@@ -96,3 +112,26 @@
 	<jsp:include page="${request.contextPath}/resources/include/basescripts.jsp"></jsp:include>
 </body>
 </html>
+<script>	
+	function ouvrirModal(){
+		alert($('#idTypePartenaire').val());
+		$.ajax({ 
+			data: {
+	        	'id':$('#id').val(),
+	        	'idTypePartenaire':$('#idTypePartenaire').val()
+	        	
+	        },
+	        type: "POST",
+	        url: 'cloturer',
+	        dataType: 'html',
+	        success: function(result) {
+	        	$('#confirm-delete').modal('toggle');
+	            //$("#cloturerBtn").click();
+	        },
+	        error:function(error){
+	       	 $("#erreur").html(error);
+	       }
+
+	    });
+	}
+</script>

@@ -50,11 +50,7 @@ public class ArticleController {
 	@RequestMapping(value = "/ListeArticle", method = RequestMethod.GET)
 	public String index(ModelMap model) {
 		try {
-			Article art = new Article();
-			art.setId(1);
-			art.setLibelle("articletest");
-			art.setCode("CODEART");
-			art.setPrix(1000.0);
+			
 			Article article = new Article();
 			List<BaseModele> lb = baseMetier.find(new Article());
 			List<Article> listeArticle = new ArrayList<Article>();
@@ -62,7 +58,7 @@ public class ArticleController {
 				listeArticle.add((Article) lb.get(x));
 			}
 			model.addAttribute("listeArticle", listeArticle);
-			model.addAttribute("article", art);
+			
 			//model.addAllAttributes(listeArticle);
 			return "ListeArticle";			
 		}

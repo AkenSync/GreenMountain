@@ -29,8 +29,16 @@ public class Partenaire extends BaseModele {
 		return libelle;
 	}
 
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
+/*	public void setLibelle(String libelle) {
+		this.libelle = libelle;*/
+
+	public void setLibelle(String libelle) throws Exception {
+		if(libelle.length()<0) throw new Exception("Le libelle est a trop peu de caract�re");
+		else this.libelle = libelle;
+	}
+	@Override
+	public String toString() {
+		return "Partenaire [idtypepartenaire=" + idtypepartenaire + ", libelle=" + libelle + "]";
 	}
 
 }

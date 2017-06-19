@@ -1,21 +1,29 @@
 package net.akenSync.gm.formModele;
 
-public class PartenaireFormModel {
-	private int id;
-	private int idTypePartenaire;
-	private String libelle;
-	private String typePartenaire;
+import net.akenSync.gm.modele.BaseModele;
+import net.akenSync.gm.modele.Partenaire;
 
+public class PartenaireFormModel extends BaseFormModel{
+	private int id;
+	private int idtypepartenaire;
+	private String libelle;
+//	private String typePartenaire;
+	public void getBaseModele(Partenaire b) throws Exception{
+		System.out.println("Entree PartenaireFOrm Model");
+		b.setId(getId());
+		b.setIdtypepartenaire(getIdTypePartenaire());
+		b.setLibelle(getLibelle());
+	}
 	public PartenaireFormModel() {
 		super();
 	}
 
-	public PartenaireFormModel(int id, int idTypePartenaire, String libelle, String typePartenaire) {
+	public PartenaireFormModel(int id, int idTypePartenaire, String libelle) {
 		super();
 		this.id = id;
-		this.idTypePartenaire = idTypePartenaire;
+		this.idtypepartenaire = idTypePartenaire;
 		this.libelle = libelle;
-		this.typePartenaire = typePartenaire;
+		//this.typePartenaire = typePartenaire;
 	}
 
 	public int getId() {
@@ -26,28 +34,20 @@ public class PartenaireFormModel {
 		this.id = id;
 	}
 
-	public int getIdPartenaire() {
-		return id;
-	}
-
-	public void setIdPartenaire(int idPartenaire) {
-		this.id = idPartenaire;
-	}
-
-	public String getTypePartenaire() {
+	/*public String getTypePartenaire() {
 		return typePartenaire;
 	}
 
 	public void setTypePartenaire(String typePartenaire) {
 		this.typePartenaire = typePartenaire;
 	}
-
+*/
 	public int getIdTypePartenaire() {
-		return idTypePartenaire;
+		return idtypepartenaire;
 	}
 
 	public void setIdTypePartenaire(int idTypePartenaire) {
-		this.idTypePartenaire = idTypePartenaire;
+		this.idtypepartenaire = idTypePartenaire;
 	}
 
 	public String getLibelle() {
@@ -58,10 +58,5 @@ public class PartenaireFormModel {
 		this.libelle = libelle;
 	}
 
-	@Override
-	public String toString() {
-		return "PartenaireFormModel [id=" + id + ", idTypePartenaire=" + idTypePartenaire + ", libelle=" + libelle
-				+ ", typePartenaire=" + typePartenaire + "]";
-	}
-	
+
 }
