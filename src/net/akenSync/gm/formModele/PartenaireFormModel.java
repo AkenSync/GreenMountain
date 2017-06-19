@@ -34,14 +34,6 @@ public class PartenaireFormModel extends BaseFormModel{
 		this.id = id;
 	}
 
-	public int getIdPartenaire() {
-		return id;
-	}
-
-	public void setIdPartenaire(int idPartenaire) {
-		this.id = idPartenaire;
-	}
-
 	/*public String getTypePartenaire() {
 		return typePartenaire;
 	}

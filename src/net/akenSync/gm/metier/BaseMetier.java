@@ -52,8 +52,6 @@ public class BaseMetier {
 	}
 	public void insert(BaseModele b) throws Exception{
 		try{
-			System.out.println("Dans baseMetier");
-			b.toString();
 			getHd().save(b);
 		}catch (Exception ex){
             

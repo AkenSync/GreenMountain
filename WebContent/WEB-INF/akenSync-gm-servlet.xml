@@ -21,12 +21,12 @@
     </bean>
    <!-- Getting Database properties -->
     <context:property-placeholder location="classpath:application.properties" />
+    <bean id="partenaireMetier" class = "net.akenSync.gm.metier.PartenaireMetier" parent="baseMetier">
+	</bean>
     <bean id="baseMetier" class="net.akenSync.gm.metier.BaseMetier">
 		<property name="hd" ref="hibernateDao" />
 	</bean>
-	<bean id="partenaireMetier" class="net.akenSync.gm.metier.PartenaireMetier">
-		
-	</bean>
+	
 	<bean id="hibernateDao" class="net.akenSync.gm.dao.HibernateDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
