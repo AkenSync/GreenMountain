@@ -26,15 +26,7 @@ public class PartenaireController {
 	@RequestMapping(value = "/Partenaire", method = RequestMethod.GET)
 	public ModelAndView showForm(ModelMap model) {
 		ModelAndView modelv=new ModelAndView("Partenaire", "command", new PartenaireFormModel());
-		List<BaseModele> liste;
-		try {
-			liste = partenaireMetier.findAll(new TypePartenaire());
-			modelv.addObject("listeTypePartenaire", liste);
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		return modelv;
 	}
 	
@@ -59,8 +51,17 @@ public class PartenaireController {
 	   public Map<String, String> getCountryList()
 	   {
 	      Map<String, String> typePartenaireList = new HashMap<String, String>();
-	      typePartenaireList.put("1", "Fournisseur");
-	      typePartenaireList.put("2", "Client");
+	      List<BaseModele> liste;
+	      try {
+				liste = partenaireMetier.findAll(new TypePartenaire());
+				for(BaseModele b:liste){
+					TypePartenaire t=(TypePartenaire)b;
+					typePartenaireList.put(String.valueOf(t.getId()), t.getLibelle());
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	      return typePartenaireList;
 	   }
 }
