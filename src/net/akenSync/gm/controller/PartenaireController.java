@@ -15,18 +15,15 @@ import net.akenSync.gm.formModele.PartenaireFormModel;
 public class PartenaireController {
 	@RequestMapping(value = "/Partenaire", method = RequestMethod.GET)
 	public ModelAndView showForm() {
-		return new ModelAndView("Partenaire", "command", new PartenaireFormModel());
+		return new ModelAndView("MasterData/Partenaire", "command", new PartenaireFormModel());
 	}
 	
 	@RequestMapping(value = "/AddPartenaire", method = RequestMethod.POST)
 	public ModelAndView addStock(@ModelAttribute("akenSync-gm") PartenaireFormModel form, ModelMap model) {
-		ModelAndView result = new ModelAndView("Partenaire","command",new PartenaireFormModel());
-		
+		ModelAndView result = new ModelAndView("MasterData/Partenaire","command",new PartenaireFormModel());
 		result.addObject("id",form.getId());
 		result.addObject("libelle", form.getLibelle());
 		result.addObject("message", "Fonction en cours de developpement");
-		System.out.println(form.toString());
-		
 		return result;
 	}
 	

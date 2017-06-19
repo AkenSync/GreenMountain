@@ -2,20 +2,20 @@ package net.akenSync.gm.formModele;
 
 public class StockFormModel {
 	private long id;
-	private String code;
-	private String label;
+	private String name;
 	private String description;
-
-	public StockFormModel(long id, String code, String label, String description) {
-		super();
-		this.id = id;
-		this.code = code;
-		this.label = label;
-		this.description = description;
-	}
+	private String address;
 
 	public StockFormModel() {
 		super();
+	}
+	
+	public StockFormModel(long id, String name, String description, String address) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.address = address;
 	}
 
 	public long getId() {
@@ -26,20 +26,12 @@ public class StockFormModel {
 		this.id = id;
 	}
 
-	public String getCode() {
-		return code;
+	public String getName() {
+		return name;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
+	public void setName(String stockName) {
+		this.name = stockName;
 	}
 
 	public String getDescription() {
@@ -50,12 +42,13 @@ public class StockFormModel {
 		this.description = description;
 	}
 
-	@Override
-	public String toString() {
-		return "StockFormModel [id=" + id + ", code=" + code + ", label=" + label + ", description=" + description
-				+ "]";
+	public String getAddress() {
+		return address;
 	}
-	
-	
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 
 }
