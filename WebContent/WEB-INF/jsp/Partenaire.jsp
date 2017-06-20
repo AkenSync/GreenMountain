@@ -94,7 +94,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Résultat recherche</h4>
+          <h4 class="modal-title">Résultat de la recherche</h4>
         </div>
         <div class="modal-body" id="modal-core">
         	
@@ -114,19 +114,18 @@
 </html>
 <script>	
 	function ouvrirModal(){
-		alert($('#idTypePartenaire').val());
 		$.ajax({ 
 			data: {
 	        	'id':$('#id').val(),
-	        	'idTypePartenaire':$('#idTypePartenaire').val()
-	        	
+	        	'idTypePartenaire':$('#idTypePartenaire').val(),
+	        	'libelle':$('#libelle').val()
 	        },
 	        type: "POST",
-	        url: 'cloturer',
+	        url: 'Rechercher',
 	        dataType: 'html',
 	        success: function(result) {
-	        	$('#confirm-delete').modal('toggle');
-	            //$("#cloturerBtn").click();
+	        	$('#modal-core').html(result);
+	        	$('#myModal').modal('toggle');
 	        },
 	        error:function(error){
 	       	 $("#erreur").html(error);

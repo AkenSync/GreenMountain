@@ -30,7 +30,9 @@ public class Partenaire extends BaseModele{
 		return libelle;
 	}
 	public void setLibelle(String libelle) throws Exception {
-		if(libelle.length()<0) throw new Exception("Le libelle est a trop peu de caractère");
+		if(libelle.length()<1){
+			throw new Exception("Le libelle est a trop peu de caractère",new Throwable("001"));
+		}
 		else this.libelle = libelle;
 	}
 	@Override
