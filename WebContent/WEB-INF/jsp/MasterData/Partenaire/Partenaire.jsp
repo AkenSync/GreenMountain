@@ -46,7 +46,7 @@
 			 <header class="panel-heading"> Fiche Partenaire </header>
 			<div class="panel-body">
 				
-				<form:form method="POST" action="AddPartenaire" class="form-horizontal">
+				<form:form method="POST" action="CrudPartenaire" class="form-horizontal">
 					<div class="form-group">
 						<form:label path="id" class="col-sm-2 control-label">ID</form:label>
 						<div class="col-sm-2">
@@ -66,53 +66,73 @@
 							<form:input path="libelle" class="form-control" value="${libelle}" />
 						</div>
 					</div>
+					<input id="repere" name="repere" class="form-control" type="hidden"/>
 					<div class="form-group">
 						<label class="col-sm-2 control-label"></label>
 						<div class="col-sm-10">
-							<input type="submit" class="btn btn-default" value="Creer" />
+							<input type="submit" class="btn btn-default" onclick="setRepere(1)" value="Creer" />
 							<button type="button" onclick="ouvrirModal()" class="btn btn-default">Rechercher</button>
-							<button type="submit" class="btn btn-default" disabled="disabled">Modifier</button>
-							<button type="submit" class="btn btn-default" disabled="disabled">Supprimer</button>
+							<button type="submit" class="btn btn-default" disabled="disabled" onclick="setRepere(2)" id="modifierBtn">Modifier</button>
+							<button type="submit" class="btn btn-default" disabled="disabled" onclick="setRepere(3)" id="supprimerBtn">Supprimer</button>
 						</div>
 					</div>
-					<c:if test="${!empty message}">
-						<label class="col-sm-2 control-label"></label>
-						<div class="alert alert-block alert-danger fade in col-sm-5">
-							<button data-dismiss="alert" class="close close-sm" type="button">
-								<i class="icon-remove"></i>
-							</button>
-							<strong>Erreur: </strong> ${message}
-						</div>
+					<c:if test="${not empty message}">
+						<c:choose>
+							<c:when test="${message.typeMessage == 1}">
+								<label class="col-sm-2 control-label"></label>
+								<div class="alert alert-block alert-success fade in col-sm-5">
+									<button data-dismiss="alert" class="close close-sm" type="button">
+										<i class="icon-remove"></i>
+									</button>
+									${message.message}
+								</div>
+							</c:when>
+							<c:when test="${message.typeMessage == 2}">
+								<label class="col-sm-2 control-label"></label>
+								<div class="alert alert-block alert-danger fade in col-sm-5">
+									<button data-dismiss="alert" class="close close-sm" type="button">
+										<i class="icon-remove"></i>
+									</button>
+									<strong>Erreur: </strong> ${message.message}
+								</div>
+							</c:when>
+						</c:choose>
 					</c:if>
 				</form:form>
 			</div>
+			<div class="modal fade" tabindex="1" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+			   <div class="modal-dialog modal-lg" role="document">
+			     <div class="modal-content">
+			       <div class="modal-header">
+			         <button type="button" class="close" data-dismiss="modal">&times;</button>
+			         <h4 class="modal-title" id="myModalLabel">Résultat de la recherche</h4>
+			       </div>
+			       <div class="modal-body" id="modal-core">
+			       	
+			       </div>
+			       <div class="modal-footer">
+			         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			       </div>
+			     </div>
+			   </div>
+			 </div>
 			</section>
 		</div>
 	</div>
-	<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Résultat de la recherche</h4>
-        </div>
-        <div class="modal-body" id="modal-core">
-        	
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+	
 	</section> 
 	</section> 
 	<!--main content end--> 
 	</section>
 	<jsp:include page="${request.contextPath}/resources/include/basescripts.jsp"></jsp:include>
 </body>
+
 </html>
+
 <script>	
+	function setRepere(arg){
+		$('#repere').val(arg);
+	}
 	function ouvrirModal(){
 		$.ajax({ 
 			data: {

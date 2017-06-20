@@ -25,4 +25,16 @@ public class PartenaireMetier extends BaseMetier{
 		}
 		return listepart;
 	}
+
+	public void update(PartenaireFormModel form) throws Exception {
+		Partenaire part=new Partenaire();
+		form.getBaseModele(part);
+		this.update(part); 
+	}
+
+	public void delete(PartenaireFormModel form) throws Exception {
+		Partenaire part=new Partenaire();
+		form.getBaseModele(part);
+		this.delete(part); 
+	}
 }

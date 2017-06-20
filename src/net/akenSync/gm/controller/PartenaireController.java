@@ -21,6 +21,7 @@ import net.akenSync.gm.metier.PartenaireMetier;
 import net.akenSync.gm.modele.BaseModele;
 import net.akenSync.gm.modele.Partenaire;
 import net.akenSync.gm.modele.TypePartenaire;
+import net.akenSync.gm.util.Message;
 
 @Controller
 public class PartenaireController {
@@ -28,25 +29,39 @@ public class PartenaireController {
 	PartenaireMetier partenaireMetier;	
 	@RequestMapping(value = "/Partenaire", method = RequestMethod.GET)
 	public ModelAndView showForm() {
-		return new ModelAndView("MasterData/Partenaire", "command", new PartenaireFormModel());
+		return new ModelAndView("MasterData/Partenaire/Partenaire", "command", new PartenaireFormModel());
 	}
 	
-	@RequestMapping(value = "/AddPartenaire", method = RequestMethod.POST)
-	public ModelAndView addStock(@ModelAttribute("akenSync-gm") PartenaireFormModel form, ModelMap model) {
-		/*ModelAndView result = new ModelAndView("MasterData/Partenaire","command",new PartenaireFormModel());
-		result.addObject("id",form.getId());
-		result.addObject("libelle", form.getLibelle());
-		result.addObject("message", "Fonction en cours de developpement");
-		return result;*/
+	@RequestMapping(value = "/CrudPartenaire", method = RequestMethod.POST)
+	public ModelAndView addStock(@RequestParam("repere") String repere,@ModelAttribute("akenSync-gm") PartenaireFormModel form, ModelMap model) {
 		try {
-			partenaireMetier.add(form);
+			if(Integer.valueOf(repere)==1){
+				partenaireMetier.add(form);
+				ModelAndView result =new ModelAndView("MasterData/Partenaire/Partenaire","command",new PartenaireFormModel());
+				Message m=new Message(1,"Insertion");
+				result.addObject("message", m);
+				return result;
+			}else if(Integer.valueOf(repere)==2){
+				partenaireMetier.update(form);
+				ModelAndView result =new ModelAndView("MasterData/Partenaire/Partenaire","command",new PartenaireFormModel());
+				Message m=new Message(1,"Modification");
+				result.addObject("message", m);
+				return result;
+			}else if(Integer.valueOf(repere)==3){
+				partenaireMetier.delete(form);
+				ModelAndView result =new ModelAndView("MasterData/Partenaire/Partenaire","command",new PartenaireFormModel());
+				Message m=new Message(1,"Suppression");
+				result.addObject("message", m);
+				return result;
+			}else return new ModelAndView("MasterData/Partenaire/Partenaire","command",new PartenaireFormModel());
 			
-			return new ModelAndView("Partenaire/Success","command",new PartenaireFormModel());
 		} catch (Exception e) {
-			ModelAndView result = new ModelAndView("Partenaire","command",new PartenaireFormModel());
+			ModelAndView result = new ModelAndView("MasterData/Partenaire/Partenaire","command",new PartenaireFormModel());
 			result.addObject("id",form.getId());
 			result.addObject("libelle", form.getLibelle());
-			result.addObject("message", e.getMessage());
+			Message m=new Message(2,"");
+			m.setMessage(e.getMessage());
+			result.addObject("message", m);
 			e.printStackTrace();
 			return result;
 		}
@@ -62,7 +77,7 @@ public class PartenaireController {
 			System.out.println("Taille : "+liste.length);
 			model.addAttribute("listePartenaire", liste);
 		}catch (Exception e) {
-			System.out.println(e.getCause().getMessage());
+			//System.out.println(e.getCause().getMessage());
 			if(e.getCause().getMessage().compareTo("001")==0){
 				Partenaire p=new Partenaire();
 				p.setId(Integer.valueOf(id));
@@ -76,7 +91,7 @@ public class PartenaireController {
 				}
 			}
 		}
-		return "Partenaire/ListePartenaire";
+		return "MasterData/Partenaire/ListePartenaire";
 	}
 	@ModelAttribute("typePartenaireList")
 	   public Map<String, String> getCountryList()
