@@ -46,21 +46,21 @@
 						<div class="col-sm-2">
 							<form:input path="id" class="form-control" value="${id }"/>
 						</div>
-						<form:label path="code" class="col-sm-1 control-label">Code</form:label>
+						<form:label path="name" class="col-sm-1 control-label">Designation</form:label>
 						<div class="col-sm-2">
-							<form:input path="code" class="form-control" value="${code }" />
-						</div>
-					</div>
-					<div class="form-group">
-						<form:label path="label" class="col-sm-2 control-label">Label</form:label>
-						<div class="col-sm-5">
-							<form:input path="label" class="form-control" value="${label }" />
+							<form:input path="name" class="form-control" value="${name }" />
 						</div>
 					</div>
 					<div class="form-group">
 						<form:label path="description" class="col-sm-2 control-label">Description</form:label>
 						<div class="col-sm-5">
 							<form:input path="description" class="form-control" value="${description }" />
+						</div>
+					</div>
+					<div class="form-group">
+					<form:label path="address" class="col-sm-2 control-label">Adresse</form:label>
+						<div class="col-sm-5">
+							<form:input path="address" class="form-control" value="${address }" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -74,11 +74,11 @@
 					</div>
 					<c:if test="${!empty message}">
 						<label class="col-sm-2 control-label"></label>
-						<div class="alert alert-block alert-danger fade in col-sm-5">
+						<div class="alert alert-block alert-info fade in col-sm-5">
 							<button data-dismiss="alert" class="close close-sm" type="button">
 								<i class="icon-remove"></i>
 							</button>
-							<strong>Erreur: </strong> ${message}
+							<strong>Info: </strong> ${message}
 						</div>
 					</c:if>
 				</form:form>
@@ -86,6 +86,52 @@
 			</section>
 		</div>
 	</div>
+	
+		 <!-- Menu bouton -->
+	<div class="col-lg-6">
+		<section class="panel"> <header class="panel-heading"> Outils </header>
+		<div class="panel-body">
+			<a class="btn btn-default" data-toggle="modal" href="#listStock"> Liste Stock </a>
+			<!-- Modal -->
+			<div class="modal fade" id="listStock" tabindex="-1" role="dialog" aria-labelledby="ListeModal" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+							<h4 class="modal-title">Liste Stock</h4>
+						</div>
+						<div class="modal-body">
+							<table class="table table-hover">
+                              <thead>
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Stock</th>
+                                  <th>Description</th>
+                                  <th>Action</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                  <td>01</td>
+                                  <td>Stock A</td>
+                                  <td>Stock</td>
+                                  <td><a href="#">lien</a></td>
+                              </tr>
+                              </tbody>
+                          </table>
+						</div>
+						<div class="modal-footer">
+							<button class="btn btn-default" data-dismiss="modal" type="button">Fermer</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- modal -->
+		</div>
+		</section>
+	</div>
+	<!-- Menu bouton -->
+                      
 	</section> 
 	</section> 
 	<!--main content end--> 

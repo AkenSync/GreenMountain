@@ -33,19 +33,17 @@ public class ArticleController {
 	private BaseMetier baseMetier;
 	@RequestMapping(value = "/Article", method = RequestMethod.GET)
 	public ModelAndView showForm() {
-		return new ModelAndView("Article", "command", new ArticleFormModel());
+		return new ModelAndView("MasterData/Article", "command", new ArticleFormModel());
 	}
 	
 	@RequestMapping(value = "/AddArticle", method = RequestMethod.POST)
 	public ModelAndView addStock(@ModelAttribute("akenSync-gm") ArticleFormModel form, ModelMap model) {
-		ModelAndView result = new ModelAndView("Article","command",new ArticleFormModel());
+		ModelAndView result = new ModelAndView("MasterData/Article","command",new ArticleFormModel());
 		result.addObject("id", form.getId());
 		result.addObject("code", form.getCode());
 		result.addObject("libelle", form.getLibelle());
 		result.addObject("prix", form.getPrix());
 		result.addObject("message", "Fonction en cours de developpement");
-		System.out.println(form.toString());
-		
 		return result;
 	}
 	

@@ -27,14 +27,17 @@ public class PartenaireController {
 	@Autowired
 	PartenaireMetier partenaireMetier;	
 	@RequestMapping(value = "/Partenaire", method = RequestMethod.GET)
-	public ModelAndView showForm(ModelMap model) {
-		ModelAndView modelv=new ModelAndView("Partenaire", "command", new PartenaireFormModel());
-		
-		return modelv;
+	public ModelAndView showForm() {
+		return new ModelAndView("MasterData/Partenaire", "command", new PartenaireFormModel());
 	}
 	
 	@RequestMapping(value = "/AddPartenaire", method = RequestMethod.POST)
 	public ModelAndView addStock(@ModelAttribute("akenSync-gm") PartenaireFormModel form, ModelMap model) {
+		/*ModelAndView result = new ModelAndView("MasterData/Partenaire","command",new PartenaireFormModel());
+		result.addObject("id",form.getId());
+		result.addObject("libelle", form.getLibelle());
+		result.addObject("message", "Fonction en cours de developpement");
+		return result;*/
 		try {
 			partenaireMetier.add(form);
 			
@@ -47,7 +50,6 @@ public class PartenaireController {
 			e.printStackTrace();
 			return result;
 		}
-		
 	}
 	@RequestMapping(value = "/Rechercher", method = RequestMethod.POST)
 	public String rechercher(@RequestParam("id") String id,@RequestParam("idTypePartenaire") String idTypePartenaire,@RequestParam("libelle") String libelle,ModelMap model) {
