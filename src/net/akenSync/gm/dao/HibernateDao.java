@@ -12,6 +12,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Example;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.metamodel.Metadata;
 import org.hibernate.metamodel.MetadataSources;
 import org.hibernate.service.ServiceRegistry;
@@ -180,7 +181,47 @@ public class HibernateDao {
                 session.close();
         }
     }
- 
+    
+    public List<BaseModele> findCriteria(BaseModele b)throws Exception {
+        Session sess = null;
+        List<BaseModele> res = null;
+        try {
+            res = new ArrayList<BaseModele>();
+            sess = this.getSessionFactory().openSession();
+            Example example = Example.create(b)
+            	    .excludeZeroes()           //exclude zero valued properties
+            	    .ignoreCase()              //perform case insensitive string comparisons
+            	    .excludeProperty("id")
+            	    .enableLike(MatchMode.ANYWHERE);             //use like for string comparisons
+            res = sess.createCriteria(b.getClass())
+            	    .add(example)
+            	    .list();
+            return res;
+        } catch (Exception ex) {
+            throw ex;
+        } finally {
+            if (sess != null) {
+                sess.close();
+            }
+        }
+    }
+    
+    public List<BaseModele> findCriteria(BaseModele b, Session sess) throws Exception {
+        List<BaseModele> res = null;
+        try {
+        	sess = this.getSessionFactory().openSession();
+            Example example = Example.create(b)
+            	    .excludeZeroes()           //exclude zero valued properties
+            	    .ignoreCase()              //perform case insensitive string comparisons
+            	    .enableLike();             //use like for string comparisons
+            res = sess.createCriteria(b.getClass())
+            	    .add(example)
+            	    .list();
+            return res;
+        } catch (Exception ex) {
+            throw ex;
+        }
+    }
     public List<BaseModele> find(BaseModele b) throws Exception {
         Session sess = null;
         List<BaseModele> res = null;
@@ -197,8 +238,7 @@ public class HibernateDao {
             }
         }
     }
-
- 
+    
     public List<BaseModele> find(BaseModele b, Session sess) throws Exception {
         List<BaseModele> res = null;
         try {
