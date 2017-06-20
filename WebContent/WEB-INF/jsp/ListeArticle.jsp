@@ -17,7 +17,7 @@
 				<td><c:out value="${ value.code }" /></td>
 				<td><c:out value="${ value.libelle }" /></td>
 				<td><c:out value="${ value.prix }" /></td>
-				<td><a href="#" class="btnAjax" name="@item.HebergementID" type="button" data-toggle="modal" data-target="#passagerheberge">Passager </a></td>
+				<td><button type="button" class="btn btn-default" data-dismiss="modal">Valider</button></td>
 			</tr>
 		</c:forEach>
 	</tbody>
