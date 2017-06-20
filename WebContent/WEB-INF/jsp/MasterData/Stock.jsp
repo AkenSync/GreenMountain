@@ -88,12 +88,16 @@
 	</div>
 	
 		 <!-- Menu bouton -->
+	<div class="row">
 	<div class="col-lg-6">
 		<section class="panel"> <header class="panel-heading"> Outils </header>
 		<div class="panel-body">
 			<a class="btn btn-default" data-toggle="modal" href="#listStock"> Liste Stock </a>
+			
+			
+			
 			<!-- Modal -->
-			<div class="modal fade" id="listStock" tabindex="-1" role="dialog" aria-labelledby="ListeModal" aria-hidden="true">
+			<div class="modal fad" id="listStock" tabindex="-1" role="dialog" aria-labelledby="ListeModal" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -127,11 +131,15 @@
 				</div>
 			</div>
 			<!-- modal -->
+			
+			
+			
 		</div>
 		</section>
 	</div>
+	</div>
 	<!-- Menu bouton -->
-                      
+	
 	</section> 
 	</section> 
 	<!--main content end--> 
