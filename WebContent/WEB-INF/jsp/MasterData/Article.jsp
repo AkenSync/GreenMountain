@@ -126,14 +126,14 @@
         $(document).ready(function () {
         	 $('#rechercher').click(function ajaxCall() {
 
-                 /* var code = $(this).attr('code');
-                  var libelle = $(this).attr('libelle');
-                  var price = $(this).attr('prix');*/
-
+                  var codeid = $('#code').val();
+                  var libelleid = $('#libelle').val();
+                  var prixid = $('#prix').val();
+             
                   $.ajax({
-                      url: '/akenSync-gm/ListeArticle',
+                      url: '/akenSync-gm/ListeArticle/',
                       type: 'GET',
-                      //data: { id : idpass , hotelname : nomhotel , d : flightdate , flightnumb :flightnumber },
+                      data: { code: codeid , libelle:libelleid , prix:prixid },
                       dataType: 'html'
 
                   })
