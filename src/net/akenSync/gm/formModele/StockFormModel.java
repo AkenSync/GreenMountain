@@ -1,7 +1,7 @@
 package net.akenSync.gm.formModele;
 
 public class StockFormModel {
-	private long id;
+	private Integer id;
 	private String name;
 	private String description;
 	private String address;
@@ -10,7 +10,7 @@ public class StockFormModel {
 		super();
 	}
 	
-	public StockFormModel(long id, String name, String description, String address) {
+	public StockFormModel(Integer id, String name, String description, String address) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -18,11 +18,11 @@ public class StockFormModel {
 		this.address = address;
 	}
 
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -46,4 +46,28 @@ public class StockController {
 		}
 		return result;
 	}
+	@RequestMapping(value = "/UpdateStock", method = RequestMethod.POST)
+	public ModelAndView updateStock(@ModelAttribute("akenSync-gm") StockFormModel form, ModelMap model) {
+		
+		ModelAndView result = new ModelAndView("MasterData/Stock","command",new StockFormModel());
+		
+		result.addObject("id",form.getId());
+		result.addObject("name",form.getName());
+		result.addObject("description",form.getDescription());
+		result.addObject("address",form.getAddress());
+		
+		Stock baseModel = new Stock();
+		baseModel.setId(form.getId());
+		baseModel.setStockName(form.getName());
+		baseModel.setDescription(form.getDescription());
+		baseModel.setAddress(form.getAddress());
+		
+		try {
+			baseMetier.update(baseModel);;
+			result.addObject("message", "Update success = "+baseModel.toString());
+		} catch (Exception e) {
+			result.addObject("message", "Insertion fail");
+		}
+		return result;
+	}
 }
