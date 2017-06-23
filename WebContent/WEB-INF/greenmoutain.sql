@@ -1,4 +1,95 @@
-﻿/*==============================================================*/
+
+create table TYPEPERSONNE (
+   IDTYPEPERSONNE       SERIAL               not null,
+   TYPEPERSONNE         VARCHAR(50)          null,
+   constraint PK_TYPEPERSONNE primary key (IDTYPEPERSONNE)
+);
+
+/*==============================================================*/
+/* Index: TYPEPERSONNE_PK                                       */
+/*==============================================================*/
+create unique index TYPEPERSONNE_PK on TYPEPERSONNE (
+IDTYPEPERSONNE
+);
+
+/*==============================================================*/
+/* Table: PERSONNE                                              */
+/*==============================================================*/
+create table PERSONNE (
+   IDPERSONNE           SERIAL               not null,
+   IDTYPEPERSONNE       INT4                 not null,
+   NOM                  VARCHAR(50)          null,
+   PRENOM               VARCHAR(50)          null,
+   EMAIL                VARCHAR(150)         null,
+   TELEPHONE1           VARCHAR(13)          null,
+   TELEPHONE2           VARCHAR(15)          null,
+   ADRESSE              VARCHAR(50)          null,
+   constraint PK_PERSONNE primary key (IDPERSONNE)
+);
+
+/*==============================================================*/
+/* Index: PERSONNE_PK                                           */
+/*==============================================================*/
+create unique index PERSONNE_PK on PERSONNE (
+IDPERSONNE
+);
+
+/*==============================================================*/
+/* Index: ASSOCIATION_8_FK                                      */
+/*==============================================================*/
+create  index ASSOCIATION_9_FK on PERSONNE (
+IDTYPEPERSONNE
+);
+
+alter table PERSONNE
+   add constraint FK_PERSONNE_ASSOCIATI_TYPEPERS foreign key (IDTYPEPERSONNE)
+      references TYPEPERSONNE (IDTYPEPERSONNE)
+      on delete restrict on update restrict;
+
+
+/*==============================================================*/
+/* Table: STOCKPERSONNE                                         */
+/*==============================================================*/
+create table STOCKPERSONNE (
+   IDSTOCKPERSONNE   INT4				 not null,
+   IDSTOCK              INT4                 not null,
+   IDPERSONNE           INT4                 not null,
+   constraint PK_STOCKPERSONNE primary key (IDSTOCKPERSONNE)
+);
+
+/*==============================================================*/
+/* Index: STOCKPERSONNE_PK                                      */
+/*==============================================================*/
+create unique index STOCKPERSONNE_PK on STOCKPERSONNE (
+IDSTOCK,
+IDPERSONNE
+);
+
+/*==============================================================*/
+/* Index: STOCKPERSONNE_FK                                      */
+/*==============================================================*/
+create  index STOCKPERSONNE_FK on STOCKPERSONNE (
+IDSTOCK
+);
+
+/*==============================================================*/
+/* Index: STOCKPERSONNE2_FK                                     */
+/*==============================================================*/
+create  index STOCKPERSONNE2_FK on STOCKPERSONNE (
+IDPERSONNE
+);
+
+alter table STOCKPERSONNE
+   add constraint FK_STOCKPER_STOCKPERS_STOCK foreign key (IDSTOCK)
+      references STOCK (IDSTOCK)
+      on delete restrict on update restrict;
+
+alter table STOCKPERSONNE
+   add constraint FK_STOCKPER_STOCKPERS_PERSONNE foreign key (IDPERSONNE)
+      references PERSONNE (IDPERSONNE)
+      on delete restrict on update restrict;
+
+/*==============================================================*/
 /* DBMS name:      PostgreSQL 8                                 */
 /* Created on:     07/06/2017 15:47:41                          */
 /*==============================================================*/
@@ -77,6 +168,10 @@ drop table TYPEPARTENAIRE cascade;
 drop index UTILISATEUR_PK;
 
 drop table UTILISATEUR cascade;
+
+drop sequence S_TYPEPERSONNE;
+
+drop sequence S_PERSONNE;
 
 drop sequence S_ARTICLE;
 
