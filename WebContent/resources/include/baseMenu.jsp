@@ -24,7 +24,7 @@
 			</a>
 				<ul class="sub">
 					<li><a class="" href="#">Fiche Client</a></li>
-					<li><a class="" href="#">Devis</a></li>
+					<li><a class="" href="Vente/Devis">Devis</a></li>
 					<li><a class="" href="#">Commande</a></li>
 					<li><a class="" href="#">Livraison</a></li>
 					<li><a class="" href="#">Facture</a></li>
@@ -63,6 +63,7 @@
 					<li><a class="" href="Article">Article</a></li>
 					<li><a class="" href="Partenaire">Partenaire</a></li>
 					<li><a class="" href="Stock">Stock</a></li>
+					<li><a class="" href="Personne">Personne</a></li>
 				</ul></li>
 		</ul>
 		<!-- sidebar menu end-->

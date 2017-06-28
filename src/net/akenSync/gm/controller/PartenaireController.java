@@ -70,14 +70,17 @@ public class PartenaireController {
 	public String rechercher(@RequestParam("id") String id,@RequestParam("idTypePartenaire") String idTypePartenaire,@RequestParam("libelle") String libelle,ModelMap model) {
 		try {
 			Partenaire p=new Partenaire();
-			p.setId(Integer.valueOf(id));
-			p.setIdtypepartenaire(Integer.valueOf(idTypePartenaire));
+			p.setId(Integer.parseInt(id));
+			p.setIdtypepartenaire(Integer.parseInt(idTypePartenaire));
 			p.setLibelle(libelle);
 			Partenaire[] liste=partenaireMetier.search(p);
 			System.out.println("Taille : "+liste.length);
 			model.addAttribute("listePartenaire", liste);
-		}catch (Exception e) {
-			//System.out.println(e.getCause().getMessage());
+		}catch (NumberFormatException e) {
+			
+		}
+		catch (Exception e) {
+			
 			if(e.getCause().getMessage().compareTo("001")==0){
 				Partenaire p=new Partenaire();
 				p.setId(Integer.valueOf(id));

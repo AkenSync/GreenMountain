@@ -1,3 +1,64 @@
+/*==============================================================*/
+/* Table: DEVIS                                                 */
+/*==============================================================*/
+create table DEVIS (
+   IDDEVIS              SERIAL               not null,
+   CODE                 VARCHAR(1024)        null,
+   DATEDOCUMENT         VARCHAR(1024)        null,
+   constraint PK_DEVIS primary key (IDDEVIS)
+);
+
+/*==============================================================*/
+/* Index: DEVIS_PK                                              */
+/*==============================================================*/
+create unique index DEVIS_PK on DEVIS (
+IDDEVIS
+);
+
+
+/*==============================================================*/
+/* Table: DEVISARTICLE                                          */
+/*==============================================================*/
+create table DEVISARTICLE (
+   IDDEVISARTICLE	SERIAL		     not null,
+   IDARTICLE            INT4                 not null,
+   IDDEVIS              INT4                 not null,
+   PRIXUNITAIRE         MONEY                null,
+   QUANTITE             INT8                 null,
+   constraint PK_DEVISARTICLE primary key (IDDEVISARTICLE)
+);
+
+/*==============================================================*/
+/* Index: DEVISARTICLE_PK                                       */
+/*==============================================================*/
+create unique index DEVISARTICLE_PK on DEVISARTICLE (
+IDDEVISARTICLE
+);
+
+/*==============================================================*/
+/* Index: DEVISARTICLE_FK                                       */
+/*==============================================================*/
+create  index DEVISARTICLE_FK on DEVISARTICLE (
+IDARTICLE
+);
+
+/*==============================================================*/
+/* Index: DEVISARTICLE2_FK                                      */
+/*==============================================================*/
+create  index DEVISARTICLE2_FK on DEVISARTICLE (
+IDDEVIS
+);
+
+alter table DEVISARTICLE
+   add constraint FK_DEVISART_DEVISARTI_ARTICLE foreign key (IDARTICLE)
+      references ARTICLE (IDARTICLE)
+      on delete restrict on update restrict;
+
+alter table DEVISARTICLE
+   add constraint FK_DEVISART_DEVISARTI_DEVIS foreign key (IDDEVIS)
+      references DEVIS (IDDEVIS)
+      on delete restrict on update restrict;
+
 
 create table TYPEPERSONNE (
    IDTYPEPERSONNE       SERIAL               not null,

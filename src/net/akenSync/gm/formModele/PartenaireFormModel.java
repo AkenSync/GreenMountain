@@ -4,21 +4,20 @@ import net.akenSync.gm.modele.BaseModele;
 import net.akenSync.gm.modele.Partenaire;
 
 public class PartenaireFormModel extends BaseFormModel{
-	private int id;
-	private int idtypepartenaire;
+	private String id;
+	private String idtypepartenaire;
 	private String libelle;
 //	private String typePartenaire;
 	public void getBaseModele(Partenaire b) throws Exception{
-		System.out.println("Entree PartenaireFOrm Model");
-		b.setId(getId());
-		b.setIdtypepartenaire(getIdTypePartenaire());
+		b.setId(Integer.parseInt(getId()));
+		b.setIdtypepartenaire(Integer.parseInt(getIdTypePartenaire()));
 		b.setLibelle(getLibelle());
 	}
 	public PartenaireFormModel() {
 		super();
 	}
 
-	public PartenaireFormModel(int id, int idTypePartenaire, String libelle) {
+	public PartenaireFormModel(String id, String idTypePartenaire, String libelle) {
 		super();
 		this.id = id;
 		this.idtypepartenaire = idTypePartenaire;
@@ -26,11 +25,11 @@ public class PartenaireFormModel extends BaseFormModel{
 		//this.typePartenaire = typePartenaire;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -42,11 +41,11 @@ public class PartenaireFormModel extends BaseFormModel{
 		this.typePartenaire = typePartenaire;
 	}
 */
-	public int getIdTypePartenaire() {
+	public String getIdTypePartenaire() {
 		return idtypepartenaire;
 	}
 
-	public void setIdTypePartenaire(int idTypePartenaire) {
+	public void setIdTypePartenaire(String idTypePartenaire) {
 		this.idtypepartenaire = idTypePartenaire;
 	}
 
